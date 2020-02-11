@@ -2,13 +2,12 @@
 .idea
 *.iml
 
-# Gradle
-.gradle
-build
-out
+# node memes
+node_modules
+*.log
 
-# vertx
-.vertx
+# built app
+dist
 
 # Stuff
 *.nogit.*
