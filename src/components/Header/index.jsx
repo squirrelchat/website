@@ -26,29 +26,58 @@
  */
 
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { Link } from 'react-router-dom'
 import Tooltip from 'rc-tooltip'
-import { BrowserRouter as Router } from 'react-router-dom'
 
-import App from './components/App'
+import { Logo, Sunrise, WindMoon } from '../Icons'
 
-// Configure
-Tooltip.defaultProps = {
-  ...Tooltip.defaultProps,
-  mouseLeaveDelay: 0,
-  prefixCls: 'tooltip',
-  destroyTooltipOnHide: true,
-  getTooltipContainer: () => document.querySelector('#tooltip-container')
+import style from './header.scss'
+
+const setTheme = (theme) => {
+  document.getElementById('react-root').className = `theme-${theme}`
+  document.cookie = `theme=${theme}; expires=${new Date(Date.now() + 31536000000).toUTCString()}; path=/`
 }
 
-// Render React App
-if (process.env.NODE_ENV === 'production') {
-  ReactDOM.hydrate(<Router><App/></Router>, document.querySelector('#react-root'))
-} else {
-  const { AppContainer: A } = require('react-hot-loader')
-  const render = C => ReactDOM.render(<A><Router><C/></Router></A>, document.querySelector('#react-root'))
+const Header = React.memo(
+  () => <header className={style.container}>
+    <div className={style.contents}>
+      <Link to='/' className={style.logo}>
+        <Logo/>
+      </Link>
+      <nav>
+        <Link to='/features'>
+          Features
+        </Link>
+        <Link to='/install'>
+          Install
+        </Link>
+        <Link to='/blog'>
+          Blog
+        </Link>
+        <a href='https://github.com/squirrelchat' target='_blank'>
+          GitHub
+        </a>
+        <a href='https://discord.gg/zhxhCzN' target='_blank'>
+          Discord
+        </a>
+      </nav>
+      <div className={style.end}>
+        <a href='https://squirrel.chat/login'>
+          Try Squirrel
+        </a>
+        {/* soon:tm: <Tooltip overlay='Change Locale' placement='bottom'>
+          <Translate width={28} height={28}/>
+        </Tooltip> */}
+        <Tooltip overlay='Turn on the lights' placement='bottom'>
+          <Sunrise width={28} height={28} onClick={() => setTheme('light')} class={style.light}/>
+        </Tooltip>
+        <Tooltip overlay='Turn off the lights' placement='bottom'>
+          <WindMoon width={28} height={28} onClick={() => setTheme('dark')} class={style.dark}/>
+        </Tooltip>
+      </div>
+    </div>
+  </header>
+)
 
-  // Render & HMR
-  if (module.hot) module.hot.accept('./components/App', () => render(App))
-  render(App)
-}
+Header.displayName = 'Header'
+export default Header

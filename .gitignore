@@ -1,19 +1,11 @@
-# JetBrains stuff
+# Editors
 .idea
 *.iml
-
-# node memes
-node_modules
-*.log
-
-# built app
-dist
-
-# Stuff
-*.nogit.*
-*.nogit/
-
-# Eclipse bs
 /.settings/
 .project
 .classpath
+
+# Project
+node_modules
+*.log
+dist

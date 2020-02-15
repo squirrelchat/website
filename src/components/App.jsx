@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-present Bowser65 & vinceh121, All rights reserved.
+ * Copyright (c) 2020 Bowser65 & vinceh121, All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -26,8 +26,57 @@
  */
 
 import React from 'react'
+import { Switch } from 'react-router-dom'
+import Helmet from 'react-helmet'
 
-const App = React.memo(() => <div onClick={() => console.log('we clicked?')}>Henlo from React!</div>)
+import Header from './Header'
+
+import './App.scss'
+
+// @todo: theme (dark & light)
+// @todo: i18n
+const App = React.memo(
+  () => <>
+    <Helmet
+      titleTemplate='%s - Squirrel Chat'
+      defaultTitle='Squirrel Chat'
+    >
+      <meta charSet='utf8'/>
+      <meta httpEquiv='Content-Type' content='text/html; charset=UTF-8'/>
+      <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no'/>
+
+      <meta name='theme-color' content='#ff7b1c'/>
+      <meta name='revisit-after' content='2 days'/>
+      <link rel='canonical' href='https://squirrel.chat/'/>
+      <meta name='description' content='Next-gen, open-source and enterprise-ready chat platform'/>
+
+      <meta property='og:locale' content='en_US'/>
+      <meta property='og:title' content='Squirrel Chat'/>
+      <meta property='og:site_name' content='Squirrel Chat'/>
+      <meta property='og:url' content='https://squirrel.chat/'/>
+      <meta property='og:image' content={require('../img/squirrel.png').default}/>
+      <meta property='og:description' content='Next-gen, open-source and enterprise-ready chat platform'/>
+
+      <meta name='twitter:card' content='summary'/>
+      <meta name='twitter:site' content='@Bowser65'/>
+
+      <link rel='shortcut icon' href={require('../img/squirrel.ico').default}/>
+      <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,600'/>
+    </Helmet>
+    <Header/>
+    <Switch>
+      <div style={{
+        fontSize: 50,
+        fontWeight: 600,
+        width: '100%',
+        height: 'calc(100% - 69px)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>Coming Soon</div>
+    </Switch>
+  </>
+)
+
 App.displayName = 'App'
-
 export default App

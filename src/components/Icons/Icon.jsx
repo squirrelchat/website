@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-present Bowser65 & vinceh121, All rights reserved.
+ * Copyright (c) 2020 Bowser65 & vinceh121, All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -25,8 +25,18 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-module.exports = {
-  plugins: [
-    require('autoprefixer')
-  ]
+import React from 'react'
+
+export default (name, viewBox, paths) => {
+  if (!Array.isArray(paths)) paths = [ paths ]
+
+  const Icon = React.memo(
+    (props) => <svg xmlns='http://www.w3.org/2000/svg' viewBox={viewBox} {...props}>
+      {paths.map(path => <path key={path} fill='currentColor' d={path}/>)}
+    </svg>
+  )
+
+  Icon.defaultProps = { width: 24, height: 24 }
+  Icon.displayName = name
+  return Icon
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-present Bowser65 & vinceh121, All rights reserved.
+ * Copyright (c) 2020 Bowser65 & vinceh121, All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -44,6 +44,8 @@ const manifest = require('./dist/manifest.json')
 
 require('http')
   .createServer((req, res) => {
+    res.setHeader('x-powered-by', 'an army of squirrels')
+
     // Assets
     if (req.url.startsWith('/dist/')) {
       const target = req.url.split('/')[2]
@@ -55,7 +57,7 @@ require('http')
     }
 
     // Just return empty html while developing
-    if (process.argv.includes('-d')) return res.end(renderHtml())
+    if (process.argv.includes('-d')) return res.end(renderHtml(req))
 
     // SSR
     const context = {}
@@ -75,23 +77,25 @@ require('http')
     } else {
       // Send
       res.setHeader('content-type', 'text/html')
-      res.end(renderHtml(Helmet.renderStatic(), html))
+      res.end(renderHtml(req, Helmet.renderStatic(), html))
     }
   }).listen(process.env.PORT || 6969)
 
 // noinspection HtmlRequiredLangAttribute,HtmlRequiredTitleElement
-const renderHtml = (helmet, html) => `
+const renderHtml = (req, helmet, html) => `
   <!DOCTYPE html>
   <html ${helmet ? helmet.htmlAttributes.toString() : ''}>
     <head>
-      <meta charset='utf8'/>
       ${helmet ? helmet.title.toString() : ''}
       ${helmet ? helmet.meta.toString() : ''}
       ${helmet ? helmet.link.toString() : ''}
       ${manifest['styles.css'] ? `<link rel='stylesheet' href='${manifest['styles.css']}'/>` : ''}
     </head>
     <body ${helmet ? helmet.bodyAttributes.toString() : ''}>
-      <div id='react-root'>${html || ''}</div>
+      <div id='react-root' class='theme-${(req.headers.cookie.split(';').find(c => c.trim().startsWith('theme=')) || 'theme=dark').split('=')[1]}'>
+        ${html || ''}
+        </div>
+      <div id='tooltip-container'></div>
       <script>window.GLOBAL_ENV = { PRODUCTION: ${process.argv.includes('-p')} }</script>
       <script src='${manifest['main.js']}'></script>
       ${manifest['styles.js'] ? `<script src='${manifest['styles.js']}'></script>` : ''}

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-present Bowser65 & vinceh121, All rights reserved.
+ * Copyright (c) 2020 Bowser65 & vinceh121, All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -26,16 +26,18 @@
  */
 
 const { resolve } = require('path')
-const { readdirSync, unlinkSync } = require('fs')
+const { existsSync, readdirSync, unlinkSync } = require('fs')
 const TerserJSPlugin = require('terser-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const { DefinePlugin, IgnorePlugin } = require('webpack')
+const { DefinePlugin, optimize: { LimitChunkCountPlugin } } = require('webpack')
 
 // Env vars
-const commitHash = require('child_process').execSync('git rev-parse HEAD').toString().trim()
+const commitHash = null
+try { require('child_process').execSync('git rev-parse HEAD').toString().trim() } catch (e) {}
+
 const isDev = process.env.NODE_ENV === 'development'
 const src = resolve(__dirname, 'src')
 
@@ -87,8 +89,6 @@ const baseConfig = {
             loader: MiniCSSExtractPlugin.loader,
             options: { hmr: isDev }
           },
-          // If you want to disable css modules, remove the block below and uncomment this line.
-          // 'css-loader',
           {
             loader: 'css-loader',
             options: {
@@ -96,11 +96,15 @@ const baseConfig = {
               modules: { localIdentName: '[local]-[hash:7]' }
             }
           },
+          {
+            loader: 'postcss-loader',
+            options: { plugins: [ require('autoprefixer') ] }
+          },
           'sass-loader'
         ]
       },
       {
-        test: /\.(svg|mp4|webm|woff2?|eot|ttf|otf|wav)$/,
+        test: /\.(svg|mp4|webm|woff2?|eot|ttf|otf|wav|ico)$/,
         use: [
           {
             loader: 'file-loader',
@@ -140,6 +144,7 @@ const baseConfig = {
   },
   plugins: [
     new ManifestPlugin({
+      writeToFileEmit: true,
       fileName: resolve(__dirname, 'http', 'dist', 'manifest.json')
     }),
     new MiniCSSExtractPlugin({
@@ -157,19 +162,6 @@ const baseConfig = {
     minimize: !isDev,
     minimizer: [
       new TerserJSPlugin({
-        terserOptions: {
-          parse: { ecma: 8 },
-          compress: {
-            ecma: 5,
-            warnings: false,
-            inline: 2
-          },
-          output: {
-            ecma: 5,
-            comments: false,
-            ascii_only: true
-          }
-        },
         extractComments: false,
         parallel: true,
         cache: true
@@ -199,47 +191,53 @@ const baseConfig = {
   devServer: {
     quiet: true,
     historyApiFallback: true,
-    allowedHosts: [ 'localhost', '.ngrok.io' ],
+    allowedHosts: [ 'localhost', '.ngrok.io' ], // Learn more about ngrok here: https://ngrok.com/
     proxy: { '/': `http://localhost:${process.env.PORT || 6969}` }
   }
 }
 
 if (isDev) {
-  baseConfig.entry = [ 'react-hot-loader/patch', 'webpack/hot/dev-server', baseConfig.entry ]
+  baseConfig.entry = [ 'react-hot-loader/patch', baseConfig.entry ]
   baseConfig.plugins.push(new FriendlyErrorsWebpackPlugin())
   module.exports = baseConfig
 } else {
   baseConfig.plugins.push({
     apply: (compiler) =>
       compiler.hooks.compile.tap('cleanBuild', () => {
-        for (const filename of readdirSync(compiler.options.output.path)) {
-          if (filename !== 'manifest.json') {
-            unlinkSync(resolve(compiler.options.output.path, filename))
+        if (existsSync(compiler.options.output.path)) {
+          for (const filename of readdirSync(compiler.options.output.path)) {
+            if (filename !== 'manifest.json') {
+              unlinkSync(resolve(compiler.options.output.path, filename))
+            }
           }
         }
       })
   })
 
-  const nodeCfg = Object.assign({}, baseConfig)
-  // Prevent nested structs from being refs
-  nodeCfg.plugins = [ ...nodeCfg.plugins ]
-  nodeCfg.output = Object.assign({}, nodeCfg.output)
-  nodeCfg.optimization = Object.assign({}, nodeCfg.optimization)
-
-  // Actual edits
-  nodeCfg.entry = resolve(src, 'components', 'App.jsx')
-  nodeCfg.optimization.minimize = false
-  nodeCfg.output.filename = 'App.js'
-  nodeCfg.output.chunkFilename = '[name].chk.js'
-  nodeCfg.output.libraryTarget = 'commonjs2'
-  nodeCfg.output.path = resolve(__dirname, 'http', 'dist')
-  nodeCfg.plugins = nodeCfg.plugins.slice(1)
-  nodeCfg.plugins.push(new IgnorePlugin(/\.(s?css|png|jpe?g|gif|svg|mp4|webm|woff2?|eot|ttf|otf|wav)$/))
-  nodeCfg.target = 'node'
-  nodeCfg.externals = [ require('webpack-node-externals')() ]
-  nodeCfg.node = {
-    __dirname: false,
-    __filename: false
+  const nodeCfg = {
+    ...baseConfig,
+    entry: resolve(src, 'components', 'App.jsx'),
+    output: {
+      filename: 'App.js',
+      chunkFilename: '[name].chk.js',
+      libraryTarget: 'commonjs2',
+      path: resolve(__dirname, 'http', 'dist'),
+      publicPath: '/dist/'
+    },
+    plugins: [
+      ...baseConfig.plugins.slice(1),
+      new LimitChunkCountPlugin({ maxChunks: 1 })
+    ],
+    optimization: {
+      ...baseConfig.optimization,
+      minimize: false
+    },
+    target: 'node',
+    externals: [ require('webpack-node-externals')() ],
+    node: {
+      __dirname: false,
+      __filename: false
+    }
   }
 
   module.exports = [ baseConfig, nodeCfg ]
