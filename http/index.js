@@ -92,7 +92,7 @@ const renderHtml = (req, helmet, html) => `
       ${manifest['styles.css'] ? `<link rel='stylesheet' href='${manifest['styles.css']}'/>` : ''}
     </head>
     <body ${helmet ? helmet.bodyAttributes.toString() : ''}>
-      <div id='react-root' class='theme-${(req.headers.cookie.split(';').find(c => c.trim().startsWith('theme=')) || 'theme=dark').split('=')[1]}'>
+      <div id='react-root' class='theme-${((req.headers.cookie || '').split(';').find(c => c.trim().startsWith('theme=')) || 'theme=dark').split('=')[1]}'>
         ${html || ''}
         </div>
       <div id='tooltip-container'></div>
