@@ -34,12 +34,20 @@
   position: fixed;
   right: 5%;
   top: 0;
+  color: $text-white;
 
   &:after {
     content: '';
     display: block;
     height: 2px;
     width: 100%;
+    background-image: linear-gradient(
+          -90deg,
+          $dark-secondary 0%,
+          $dark-highlight 28%,
+          $dark-highlight 74%,
+          $dark-secondary 100%
+  );
   }
 }
 
@@ -103,37 +111,5 @@
   svg {
     cursor: pointer;
     margin-left: 10px;
-  }
-}
-
-:global(.theme-dark) {
-  .container:after {
-    background-image: linear-gradient(
-            -90deg,
-            $dark-secondary 0%,
-            $dark-highlight 28%,
-            $dark-highlight 74%,
-            $dark-secondary 100%
-    );
-  }
-
-  .dark {
-    display: none;
-  }
-}
-
-:global(.theme-light) {
-  .container:after {
-    background-image: linear-gradient(
-            -90deg,
-            $light-secondary 0%,
-            $light-highlight 28%,
-            $light-highlight 74%,
-            $light-secondary 100%
-    );
-  }
-
-  .light {
-    display: none;
   }
 }

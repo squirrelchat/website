@@ -27,16 +27,10 @@
 
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Tooltip from 'rc-tooltip'
 
-import { Logo, Sunrise, WindMoon } from '../Icons'
+import { Logo } from '../Icons'
 
 import style from './header.scss'
-
-const setTheme = (theme) => {
-  document.getElementById('react-root').className = `theme-${theme}`
-  document.cookie = `theme=${theme}; expires=${new Date(Date.now() + 31536000000).toUTCString()}; path=/`
-}
 
 const Header = React.memo(
   () => <header className={style.container}>
@@ -68,12 +62,6 @@ const Header = React.memo(
         {/* soon:tm: <Tooltip overlay='Change Locale' placement='bottom'>
           <Translate width={28} height={28}/>
         </Tooltip> */}
-        <Tooltip overlay='Turn on the lights' placement='bottom'>
-          <Sunrise width={28} height={28} onClick={() => setTheme('light')} class={style.light}/>
-        </Tooltip>
-        <Tooltip overlay='Turn off the lights' placement='bottom'>
-          <WindMoon width={28} height={28} onClick={() => setTheme('dark')} class={style.dark}/>
-        </Tooltip>
       </div>
     </div>
   </header>

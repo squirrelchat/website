@@ -44,6 +44,7 @@ const manifest = require('./dist/manifest.json')
 
 require('http')
   .createServer((req, res) => {
+    // uwu
     res.setHeader('x-powered-by', 'an army of squirrels')
 
     // Assets
@@ -92,7 +93,7 @@ const renderHtml = (req, helmet, html) => `
       ${manifest['styles.css'] ? `<link rel='stylesheet' href='${manifest['styles.css']}'/>` : ''}
     </head>
     <body ${helmet ? helmet.bodyAttributes.toString() : ''}>
-      <div id='react-root' class='theme-${((req.headers.cookie || '').split(';').find(c => c.trim().startsWith('theme=')) || 'theme=dark').split('=')[1]}'>
+      <div id='react-root'>
         ${html || ''}
         </div>
       <div id='tooltip-container'></div>

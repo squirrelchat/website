@@ -39,15 +39,7 @@
     margin: 0;
     padding: 0;
     width: 100%;
-  }
-
-  #react-root.theme-dark {
     background-color: $dark-secondary;
-    color: $light-secondary;
-  }
-
-  #react-root.theme-light {
-    background-color: $light-secondary;
-    color: $dark-highlight;
+    color: $text-white;
   }
 }
