@@ -26,7 +26,6 @@
  */
 
 import React from 'react'
-import { Switch } from 'react-router-dom'
 import Helmet from 'react-helmet'
 
 import Header from './Header'
@@ -34,8 +33,6 @@ import Footer from './Footer'
 
 import './App.scss'
 
-// @todo: theme (dark & light)
-// @todo: i18n
 const App = React.memo(
   () => <>
     <Helmet
@@ -66,19 +63,17 @@ const App = React.memo(
     </Helmet>
     <Header/>
     <main>
-      <Switch>
-        <div style={{
-          fontSize: 50,
-          fontWeight: 600,
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}>
-          Coming Soon
-        </div>
-      </Switch>
+      <div style={{
+        fontSize: 50,
+        fontWeight: 600,
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>
+        Coming Soon
+      </div>
     </main>
     <Footer/>
   </>

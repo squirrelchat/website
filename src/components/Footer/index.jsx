@@ -42,7 +42,7 @@ const squirrels = [
 const Footer = React.memo(
   () => {
     const random = React.useMemo(() => {
-      const saved = document ? document.body.dataset['rng-footer'] : null
+      const saved = typeof document !== 'undefined' ? document.body.dataset['rng-footer'] : null
       return saved || Math.floor(Math.random() * squirrels.length)
     }, [])
     return <footer className={style.container}>
