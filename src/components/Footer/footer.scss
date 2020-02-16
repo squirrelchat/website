@@ -28,87 +28,35 @@
 @import '../vars';
 
 .container {
-  background-color: inherit;
-  color: $text-white;
-  height: 69px;
-  left: 5%;
-  position: fixed;
-  right: 5%;
-  top: 0;
+  background-color: $dark-primary;
+  font-size: 14px;
+  height: 215px;
 
-  &:after {
-    background-image: linear-gradient(
-            -90deg,
-            $dark-secondary 0%,
-            $dark-highlight 28%,
-            $dark-highlight 74%,
-            $dark-secondary 100%
-    );
-    bottom: 0;
-    content: '';
-    height: 2px;
-    left: 0;
-    position: absolute;
-    right: 0;
-    width: 100%;
+  section {
+    width: 20%;
   }
 }
 
 .contents {
-  align-items: center;
   display: flex;
-  height: 69px;
   justify-content: space-between;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 2.5em;
-  padding-right: 2.5em;
-
-  nav {
-    align-items: center;
-    display: flex;
-    height: 100%;
-
-    a {
-      color: inherit;
-      font-size: 18px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: color .2s;
-
-      &:hover {
-        color: $primary;
-      }
-
-      + a {
-        margin-left: 25px;
-      }
-    }
-  }
+  max-width: 74em;
+  padding: 2em 1em;
 }
 
-.logo {
-  color: $primary;
-  flex-shrink: 0;
-  height: 50px;
-
-  svg {
-    height: 100%;
-  }
+.title {
+  height: 32px;
+  margin-bottom: 5px;
 }
 
-.end {
-  align-items: center;
-  display: flex;
-  height: 100%;
+.item {
+  display: block;
+  color: $text-grey;
+  margin-bottom: 5px;
+}
 
-  a {
-    color: inherit;
-    margin-right: 15px;
-  }
-
-  svg {
-    cursor: pointer;
-    margin-left: 10px;
-  }
+.spaced {
+  margin-top: 15px;
 }

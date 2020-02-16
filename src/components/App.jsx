@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Bowser65 & vinceh121, All rights reserved.
+ * Copyright (c) 2020 Squirrel Chat, All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -30,6 +30,7 @@ import { Switch } from 'react-router-dom'
 import Helmet from 'react-helmet'
 
 import Header from './Header'
+import Footer from './Footer'
 
 import './App.scss'
 
@@ -64,17 +65,22 @@ const App = React.memo(
       <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,600'/>
     </Helmet>
     <Header/>
-    <Switch>
-      <div style={{
-        fontSize: 50,
-        fontWeight: 600,
-        width: '100%',
-        height: 'calc(100% - 69px)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}>Coming Soon</div>
-    </Switch>
+    <main>
+      <Switch>
+        <div style={{
+          fontSize: 50,
+          fontWeight: 600,
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+          Coming Soon
+        </div>
+      </Switch>
+    </main>
+    <Footer/>
   </>
 )
 

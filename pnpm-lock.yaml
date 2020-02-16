@@ -2,7 +2,6 @@ dependencies:
   mime-types: 2.1.26
   rc-tooltip: 4.0.0-alpha.3_react-dom@16.12.0+react@16.12.0
   react: 16.12.0
-  react-custom-scrollbars: 4.2.1_react-dom@16.12.0+react@16.12.0
   react-dom: 16.12.0_react@16.12.0
   react-helmet: 5.2.1_react@16.12.0
   react-router: 5.1.2_react@16.12.0
@@ -568,10 +567,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-WCxx1ixHT0GQU9hb0KI/mhgRQhnU+U3GvwY6ZvVjYq8rsihIGoaIOUbY0yMPBxLH5MDtr0kz3fisWGNcbWW7Jw==
-  /add-px-to-style/1.0.0:
-    dev: false
-    resolution:
-      integrity: sha1-0ME1RB+oAUqBN5BFMQlvZ/KPJjo=
   /aggregate-error/3.0.1:
     dependencies:
       clean-stack: 2.2.0
@@ -2429,14 +2424,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-wytDzaru67AmqFOY4B9GUb/hrwWagezoYYK97D/vpK+ezg+cnuZO0Q2gltUPa7KfNmIqfRIYVCF8UhRDEHAmgQ==
-  /dom-css/2.1.0:
-    dependencies:
-      add-px-to-style: 1.0.0
-      prefix-style: 2.0.1
-      to-camel-case: 1.0.0
-    dev: false
-    resolution:
-      integrity: sha1-/bwtWgFdCj4YcuEUcrvQ57nmogI=
   /dom-serializer/0.2.2:
     dependencies:
       domelementtype: 2.0.1
@@ -6978,10 +6965,6 @@ packages:
       node: '>=6.0.0'
     resolution:
       integrity: sha512-IY4oRjpXWYshuTDFxMVkJDtWIk2LhsTlu8bZnbEJA4+bYT16Lvpo8Qv6EvDumhYRgzjZl489pmsY3qVgJQ08nA==
-  /prefix-style/2.0.1:
-    dev: false
-    resolution:
-      integrity: sha1-ZrupqHDP2jCKXcIOhekSCTLJWgY=
   /prelude-ls/1.1.2:
     dev: true
     engines:
@@ -7279,19 +7262,6 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==
-  /react-custom-scrollbars/4.2.1_react-dom@16.12.0+react@16.12.0:
-    dependencies:
-      dom-css: 2.1.0
-      prop-types: 15.7.2
-      raf: 3.4.1
-      react: 16.12.0
-      react-dom: 16.12.0_react@16.12.0
-    dev: false
-    peerDependencies:
-      react: ^0.14.0 || ^15.0.0 || ^16.0.0
-      react-dom: ^0.14.0 || ^15.0.0 || ^16.0.0
-    resolution:
-      integrity: sha1-gw/ZUCkn6X6KeMIIaBOJmyqLZts=
   /react-dom/16.12.0_react@16.12.0:
     dependencies:
       loose-envify: 1.4.0
@@ -8738,22 +8708,12 @@ packages:
     optional: true
     resolution:
       integrity: sha512-lx9B5iv7msuFYE3dytT+KE5tap+rNYw+K4jVkb9R/asAb+pbBSM17jtunHplhBe6RRJdZx3Pn2Jph24O32mOVg==
-  /to-camel-case/1.0.0:
-    dependencies:
-      to-space-case: 1.0.0
-    dev: false
-    resolution:
-      integrity: sha1-GlYFSy+daWKYzmamCJcyK29CPkY=
   /to-fast-properties/2.0.0:
     dev: true
     engines:
       node: '>=4'
     resolution:
       integrity: sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=
-  /to-no-case/1.0.2:
-    dev: false
-    resolution:
-      integrity: sha1-xyKQcWTvaxeBMsjmmTAhLRtKoWo=
   /to-object-path/0.3.0:
     dependencies:
       kind-of: 3.2.2
@@ -8790,12 +8750,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-FWtleNAtZ/Ki2qtqej2CXTOayOH9bHDQF+Q48VpWyDXjbYxA4Yz8iDB31zXOBUlOHHKidDbqGVrTUvQMPmBGBw==
-  /to-space-case/1.0.0:
-    dependencies:
-      to-no-case: 1.0.2
-    dev: false
-    resolution:
-      integrity: sha1-sFLar7Gysp3HcM6gFj5ewOvJ/Bc=
   /toidentifier/1.0.0:
     dev: true
     engines:
@@ -9540,7 +9494,6 @@ specifiers:
   postcss-loader: ^3.0.0
   rc-tooltip: ^4.0.0-alpha.3
   react: ^16.12.0
-  react-custom-scrollbars: ^4.2.1
   react-dom: ^16.12.0
   react-helmet: ^5.2.1
   react-hot-loader: ^4.12.19

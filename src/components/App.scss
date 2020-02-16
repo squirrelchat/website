@@ -1,5 +1,5 @@
 /*!
- * Copyright (c) 2020 Bowser65 & vinceh121, All rights reserved.
+ * Copyright (c) 2020 Squirrel Chat, All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -34,12 +34,45 @@
   }
 
   html, body, #react-root {
-    font-family: 'Open Sans', sans-serif;
     height: 100%;
     margin: 0;
     padding: 0;
     width: 100%;
+    font-family: 'Open Sans', sans-serif;
     background-color: $dark-secondary;
-    color: $text-white;
+    color: $text-normal;
+  }
+
+  main {
+    height: calc(100% - 215px);
+    padding-top: 69px;
+  }
+
+  a {
+    color: $blue;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // Scrollbars
+  // noinspection CssUnknownProperty
+  html {
+    scrollbar-color: rgba(0, 0, 0, .6) $dark-secondary;
+    scrollbar-width: thin;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    background-color: $dark-secondary;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .6);
+    border: 0 $dark-secondary solid;
+    border-left-width: 1px;
+    border-right-width: 1px;
   }
 }

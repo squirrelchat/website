@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Bowser65 & vinceh121, All rights reserved.
+ * Copyright (c) 2020 Squirrel Chat, All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -56,9 +56,7 @@ const Header = React.memo(
         </a>
       </nav>
       <div className={style.end}>
-        <a href='https://squirrel.chat/login'>
-          Try Squirrel
-        </a>
+        <a href='/login'>Try Squirrel</a>
         {/* soon:tm: <Tooltip overlay='Change Locale' placement='bottom'>
           <Translate width={28} height={28}/>
         </Tooltip> */}
