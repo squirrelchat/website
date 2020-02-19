@@ -1,9 +1,9 @@
 {
-  "name": "react-hybrid-boilerplate",
+  "name": "sqirrel-website",
   "version": "1.0.0",
-  "description": "A boilerplate to quickly start working on React projects using hybrid rendering.",
+  "description": "Squirrel's official website.",
   "main": "index.js",
-  "repository": "git@github.com:Bowser65/react-hybrid-boilerplate.git",
+  "repository": "git@github.com:squirrelchet/website.git",
   "author": "Bowser65 <bowoser@weeb.services>",
   "license": "BSD-3-Clause",
   "scripts": {
