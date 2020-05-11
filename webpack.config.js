@@ -32,6 +32,7 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const { DefinePlugin, optimize: { LimitChunkCountPlugin } } = require('webpack')
 
 // Env vars
@@ -51,10 +52,7 @@ const baseConfig = {
     publicPath: '/dist/'
   },
   resolve: {
-    extensions: [ '.js', '.jsx' ],
-    alias: {
-      'react-dom': isDev ? '@hot-loader/react-dom' : 'react-dom'
-    }
+    extensions: [ '.js', '.jsx' ]
   },
   module: {
     strictExportPresence: true,
@@ -63,7 +61,6 @@ const baseConfig = {
         test: /\.jsx?/,
         include: src,
         use: [
-          isDev ? 'react-hot-loader/webpack' : null,
           {
             loader: 'babel-loader',
             options: {
@@ -73,14 +70,12 @@ const baseConfig = {
               presets: [ '@babel/preset-react' ],
               plugins: [
                 '@babel/plugin-syntax-dynamic-import',
-                '@babel/plugin-proposal-class-properties',
-                '@babel/plugin-proposal-export-default-from',
                 '@babel/plugin-proposal-object-rest-spread',
-                isDev ? 'react-hot-loader/babel' : null
+                isDev ? require.resolve('react-refresh/babel') : null
               ].filter(Boolean)
             }
           }
-        ].filter(Boolean)
+        ]
       },
       {
         test: /\.s?css$/,
@@ -197,8 +192,7 @@ const baseConfig = {
 }
 
 if (isDev) {
-  baseConfig.entry = [ 'react-hot-loader/patch', baseConfig.entry ]
-  baseConfig.plugins.push(new FriendlyErrorsWebpackPlugin())
+  baseConfig.plugins.push(new FriendlyErrorsWebpackPlugin(), new ReactRefreshWebpackPlugin())
   module.exports = baseConfig
 } else {
   baseConfig.plugins.push({

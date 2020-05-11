@@ -27,9 +27,9 @@
 
 import Icon from './Icon'
 
-export Logo from './Logo'
-export Squirrel from './Squirrel'
-export WordMark from './WordMark'
+export { default as Logo } from './Logo'
+export { default as Squirrel } from './Squirrel'
+export { default as WordMark } from './WordMark'
 
 export const Translate = Icon(
   'Translate',

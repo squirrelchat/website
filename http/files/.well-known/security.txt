@@ -1,0 +1,6 @@
+Contact: mailto:hi@squirrel.chat
+# The following documents aren't available yet
+#Policy: https://squirrel.chat/security
+#Acknowledgments: https://squirrel.chat/security#acknowledgments
+Encryption: https://squirrel.chat/pgp-key.txt
+Preferred-Languages: en, fr

@@ -32,10 +32,11 @@ import { Logo } from '../Icons'
 
 import style from './header.scss'
 
-const Header = React.memo(
-  () => <header className={style.container}>
+// TODO: Rewrite
+const Header = () => (
+  <header className={style.container}>
     <div className={style.contents}>
-      <Link to='/' className={style.logo}>
+      <Link to='/' className={style.logo} aria-label="Squirrel Chat">
         <Logo/>
       </Link>
       <nav>
@@ -48,10 +49,10 @@ const Header = React.memo(
         <Link to='/blog'>
           Blog
         </Link>
-        <a href='https://github.com/squirrelchat' target='_blank'>
+        <a rel='noreferrer' href='https://github.com/squirrelchat' target='_blank'>
           GitHub
         </a>
-        <a href='https://discord.gg/zhxhCzN' target='_blank'>
+        <a rel='noreferrer' href='https://discord.gg/zhxhCzN' target='_blank'>
           Discord
         </a>
       </nav>
@@ -66,4 +67,4 @@ const Header = React.memo(
 )
 
 Header.displayName = 'Header'
-export default Header
+export default React.memo(Header)

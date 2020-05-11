@@ -27,7 +27,7 @@
 
 // Node
 const { existsSync, createReadStream } = require('fs')
-const { resolve } = require('path')
+const { join } = require('path')
 const mime = require('mime-types')
 
 // React
@@ -35,7 +35,7 @@ const React = require('react')
 const ReactDOMServer = require('react-dom/server')
 
 // Component
-const Helmet = require('react-helmet').default
+const { Helmet } = require('react-helmet')
 const { StaticRouter } = require('react-router')
 
 // Others
@@ -50,7 +50,7 @@ require('http')
     // Assets
     if (req.url.startsWith('/dist/')) {
       const target = req.url.split('/')[2]
-      const file = resolve(__dirname, '..', 'dist', target)
+      const file = join(__dirname, '..', 'dist', target)
       if (existsSync(file) && target && target !== '.' && target !== '..') {
         res.setHeader('content-type', mime.lookup(file) || 'application/octet-stream')
         return createReadStream(file).pipe(res)
@@ -82,10 +82,11 @@ require('http')
     }
   }).listen(process.env.PORT || 6969)
 
+// TODO: Resource preloading
 // noinspection HtmlRequiredLangAttribute,HtmlRequiredTitleElement
 const renderHtml = (req, helmet, html) => `
   <!DOCTYPE html>
-  <html ${helmet ? helmet.htmlAttributes.toString() : ''}>
+  <html ${helmet ? helmet.htmlAttributes.toString() : ''} lang="en-US">
     <head>
       ${helmet ? helmet.title.toString() : ''}
       ${helmet ? helmet.meta.toString() : ''}

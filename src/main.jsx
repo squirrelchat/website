@@ -29,7 +29,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-const App = React.lazy(() => import('./components/App'))
+const App = React.lazy(() => import('./components/App' /* webpackChunkName: "app" */))
+
+// TODO: https://github.com/typekit/webfontloader
 
 if (process.env.NODE_ENV === 'production') {
   ReactDOM.hydrate(
@@ -40,17 +42,11 @@ if (process.env.NODE_ENV === 'production') {
     </Router>, document.querySelector('#react-root')
   )
 } else {
-  const { AppContainer: A } = require('react-hot-loader')
-  const render = C => ReactDOM.render(
-    <A>
-      <Router>
-        <React.Suspense fallback={null}>
-          <C/>
-        </React.Suspense>
-      </Router>
-    </A>, document.querySelector('#react-root'))
-
-  // Render & HMR
-  if (module.hot) module.hot.accept('./components/App', () => render(App))
-  render(App)
+  ReactDOM.render(
+    <Router>
+      <React.Suspense fallback={null}>
+        <App/>
+      </React.Suspense>
+    </Router>, document.querySelector('#react-root')
+  )
 }

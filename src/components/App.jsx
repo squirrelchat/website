@@ -26,22 +26,22 @@
  */
 
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 import Header from './Header'
 import Footer from './Footer'
 
 import './App.scss'
 
-const App = React.memo(
-  () => <>
+const App = () => (
+  <>
     <Helmet
       titleTemplate='%s - Squirrel Chat'
       defaultTitle='Squirrel Chat'
     >
       <meta charSet='utf8'/>
       <meta httpEquiv='Content-Type' content='text/html; charset=UTF-8'/>
-      <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no'/>
+      <meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover'/>
 
       <meta name='theme-color' content='#ff7b1c'/>
       <meta name='revisit-after' content='2 days'/>
@@ -80,4 +80,4 @@ const App = React.memo(
 )
 
 App.displayName = 'App'
-export default App
+export default React.memo(App)

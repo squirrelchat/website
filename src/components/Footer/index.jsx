@@ -26,7 +26,7 @@
  */
 
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 
 import { WordMark } from '../Icons'
@@ -36,43 +36,48 @@ import style from './footer.scss'
 const squirrels = [
   'Squirrels are cute 🧡',
   'Powered by squirrels!',
-  <a href='https://en.wikipedia.org/wiki/Squirrel' target='_blank'>"Squirrel" Wikipedia article</a>
+  <a rel='noreferrer' href='https://en.wikipedia.org/wiki/Squirrel' target='_blank'>"Squirrel" Wikipedia article</a>
 ]
 
-const Footer = React.memo(
-  () => {
-    const random = React.useMemo(() => {
-      const saved = typeof document !== 'undefined' ? document.body.dataset['rng-footer'] : null
-      return saved || Math.floor(Math.random() * squirrels.length)
-    }, [])
-    return <footer className={style.container}>
+const Footer = () => {
+  // Random squirrel comment
+  const random = React.useMemo(() => {
+    const saved = typeof document !== 'undefined' ? document.body.dataset['rng-footer'] : null
+    return saved || Math.floor(Math.random() * squirrels.length)
+  }, [])
+
+  // Rendering
+  return (
+    <footer className={style.container}>
       <div className={style.contents}>
-        <section>
-          <WordMark className={style.title}/>
+        <section className={style.section}>
+          <div>
+            <WordMark className={style.title}/>
+          </div>
           <div className={style.item}>&copy; {new Date().getFullYear()} Squirrel Chat</div>
           <div className={style.item}>
-            <a href='https://github.com/squirrelchat/website/blob/master/LICENSE' target='_blank'>License</a> -
+            <a href='https://github.com/squirrelchat/website/blob/master/LICENSE' rel='noreferrer' target='_blank'>License</a> -
             BSD-3-Clause
           </div>
           <div className={[ style.item, style.spaced ].join(' ')}>{squirrels[random]}</div>
         </section>
-        <section>
+        <section className={style.section}>
           <div className={style.title}>Project</div>
           <a className={style.item} href='/login'>Try Squirrel</a>
           <Link className={style.item} to='/features'>Features</Link>
           <Link className={style.item} to='/install'>Install</Link>
           <Link className={style.item} to='/blog'>Blog</Link>
         </section>
-        <section>
+        <section className={style.section}>
           <div className={style.title}>Open Source</div>
-          <a className={style.item} target='_blank' href='https://github.com/squirrelchat'>GitHub</a>
-          <a className={style.item} target='_blank' href='https://github.com/squirrelchat/website'>Source Code</a>
-          <a className={style.item} target='_blank' href='https://github.com/squirrelchat/squirrel'>Squirrel Core</a>
+          <a className={style.item} rel="noreferrer" target='_blank' href='https://github.com/squirrelchat'>GitHub</a>
+          <a className={style.item} rel="noreferrer" target='_blank' href='https://github.com/squirrelchat/website'>Source Code</a>
+          <a className={style.item} rel="noreferrer" target='_blank' href='https://github.com/squirrelchat/squirrel'>Squirrel Core</a>
         </section>
-        <section>
+        <section className={style.section}>
           <div className={style.title}>More</div>
           <Link className={style.item} to='/branding'>Branding</Link>
-          <a className={style.item} target='_blank' href='https://discord.gg/zhxhCzN'>Discord</a>
+          <a className={style.item} rel="noreferrer" target='_blank' href='https://discord.gg/zhxhCzN'>Discord</a>
           <a className={style.item} target='_blank' href='mailto:hi@squirrel.chat'>Email</a>
         </section>
       </div>
@@ -80,8 +85,8 @@ const Footer = React.memo(
         <body data-rng-footer={random}/>
       </Helmet>
     </footer>
-  }
-)
+  )
+}
 
 Footer.displayName = 'Footer'
-export default Footer
+export default React.memo(Footer)
