@@ -65,8 +65,13 @@ const Footer = () => {
           <div className={style.title}>Project</div>
           <a className={style.item} href='/login'>Try Squirrel</a>
           <Link className={style.item} to='/features'>Features</Link>
-          <Link className={style.item} to='/install'>Install</Link>
+          <Link className={style.item} to='/download'>Download</Link>
+        </section>
+        <section className={style.section}>
+          <div className={style.title}>Resources</div>
           <Link className={style.item} to='/blog'>Blog</Link>
+          <Link className={style.item} to='/security'>Security</Link>
+          <Link className={style.item} to='/branding'>Branding</Link>
         </section>
         <section className={style.section}>
           <div className={style.title}>Open Source</div>
@@ -76,7 +81,6 @@ const Footer = () => {
         </section>
         <section className={style.section}>
           <div className={style.title}>More</div>
-          <Link className={style.item} to='/branding'>Branding</Link>
           <a className={style.item} rel="noreferrer" target='_blank' href='https://discord.gg/zhxhCzN'>Discord</a>
           <a className={style.item} target='_blank' href='mailto:hi@squirrel.chat'>Email</a>
         </section>

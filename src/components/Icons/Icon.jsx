@@ -30,13 +30,13 @@ import React from 'react'
 export default (name, viewBox, paths) => {
   if (!Array.isArray(paths)) paths = [ paths ]
 
-  const Icon = React.memo(
-    (props) => <svg xmlns='http://www.w3.org/2000/svg' viewBox={viewBox} {...props}>
+  const Icon = (props) => (
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox={viewBox} {...props}>
       {paths.map(path => <path key={path} fill='currentColor' d={path}/>)}
     </svg>
   )
 
   Icon.defaultProps = { width: 24, height: 24 }
   Icon.displayName = name
-  return Icon
+  return React.memo(Icon)
 }

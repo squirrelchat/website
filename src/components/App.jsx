@@ -58,8 +58,11 @@ const App = () => (
       <meta name='twitter:card' content='summary'/>
       <meta name='twitter:site' content='@Bowser65'/>
 
+      <link rel='dns-prefetch' href='https://fonts.googleapis.com'/>
+      <link href='https://fonts.gstatic.com' rel='preconnect' crossorigin/>
+
       <link rel='shortcut icon' href={require('../img/squirrel.ico').default}/>
-      <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,600'/>
+      <link href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap' rel='stylesheet'/>
     </Helmet>
     <Header/>
     <main>

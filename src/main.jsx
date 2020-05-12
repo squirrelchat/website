@@ -31,8 +31,6 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 const App = React.lazy(() => import('./components/App' /* webpackChunkName: "app" */))
 
-// TODO: https://github.com/typekit/webfontloader
-
 if (process.env.NODE_ENV === 'production') {
   ReactDOM.hydrate(
     <Router>
