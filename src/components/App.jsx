@@ -31,7 +31,7 @@ import { Helmet } from 'react-helmet'
 import Header from './Header'
 import Footer from './Footer'
 
-import './App.scss'
+import '@styles/main.scss'
 
 const App = () => (
   <>
@@ -52,7 +52,7 @@ const App = () => (
       <meta property='og:title' content='Squirrel Chat'/>
       <meta property='og:site_name' content='Squirrel Chat'/>
       <meta property='og:url' content='https://squirrel.chat/'/>
-      <meta property='og:image' content={require('../img/squirrel.png').default}/>
+      <meta property='og:image' content={require('@assets/squirrel.png').default}/>
       <meta property='og:description' content='Next-gen, open-source and enterprise-ready chat platform'/>
 
       <meta name='twitter:card' content='summary'/>
@@ -61,7 +61,7 @@ const App = () => (
       <link rel='dns-prefetch' href='https://fonts.googleapis.com'/>
       <link href='https://fonts.gstatic.com' rel='preconnect' crossorigin/>
 
-      <link rel='shortcut icon' href={require('../img/squirrel.ico').default}/>
+      <link rel='shortcut icon' href={require('@assets/squirrel.ico').default}/>
       <link href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap' rel='stylesheet'/>
     </Helmet>
     <Header/>

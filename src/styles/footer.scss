@@ -1,4 +1,4 @@
-/*
+/*!
  * Copyright (c) 2020 Squirrel Chat, All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,46 +25,73 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import React from 'react'
-import { Link } from 'react-router-dom'
+@import './utils/vars';
 
-import { Logo } from '../Icons'
+.container {
+  background-color: $dark-primary;
+  font-size: 14px;
+  min-height: 215px;
+}
 
-import style from './header.scss'
+.section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
 
-// TODO: Rewrite
-const Header = () => (
-  <header className={style.container}>
-    <div className={style.contents}>
-      <Link to='/' className={style.logo} aria-label="Squirrel Chat">
-        <Logo/>
-      </Link>
-      <nav>
-        <Link to='/features'>
-          Features
-        </Link>
-        <Link to='/install'>
-          Install
-        </Link>
-        <Link to='/blog'>
-          Blog
-        </Link>
-        <a rel='noreferrer' href='https://github.com/squirrelchat' target='_blank'>
-          GitHub
-        </a>
-        <a rel='noreferrer' href='https://discord.gg/zhxhCzN' target='_blank'>
-          Discord
-        </a>
-      </nav>
-      <div className={style.end}>
-        <a href='/login'>Try Squirrel</a>
-        {/* soon:tm: <Tooltip overlay='Change Locale' placement='bottom'>
-          <Translate width={28} height={28}/>
-        </Tooltip> */}
-      </div>
-    </div>
-  </header>
-)
+.contents {
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2em 1em;
+  flex-wrap: wrap;
+  max-width: 80%;
+  text-align: center;
+}
 
-Header.displayName = 'Header'
-export default React.memo(Header)
+.title {
+  height: 32px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.item {
+  display: block;
+  color: $text-grey;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px;
+
+  &.spaced {
+    margin-top: 15px;
+  }
+}
+
+.section:not(:first-child) .item a {
+  color: inherit;
+}
+
+@media (min-width: 550px) {
+  .section {
+    width: 49%;
+  }
+
+  .item { 
+    margin-bottom: 5px;
+  }
+}
+
+@media (min-width: 950px) {
+  .section {
+    width: 20%;
+    margin-bottom: 0;
+  }
+
+  .item {
+    margin-bottom: 0;
+  }
+}

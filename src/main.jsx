@@ -29,7 +29,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-const App = React.lazy(() => import('./components/App' /* webpackChunkName: "app" */))
+const App = React.lazy(() => import('./components/App' /* webpackChunkName: "app", webpackPrefetch: true */))
 
 if (process.env.NODE_ENV === 'production') {
   ReactDOM.hydrate(

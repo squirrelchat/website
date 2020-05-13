@@ -29,9 +29,9 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 
-import { WordMark } from '../Icons'
+import { WordMark } from './Icons'
 
-import style from './footer.scss'
+import style from '@styles/footer.scss'
 
 const squirrels = [
   'Squirrels are cute 🧡',
@@ -63,26 +63,48 @@ const Footer = () => {
         </section>
         <section className={style.section}>
           <div className={style.title}>Project</div>
-          <a className={style.item} href='/login'>Try Squirrel</a>
-          <Link className={style.item} to='/features'>Features</Link>
-          <Link className={style.item} to='/download'>Download</Link>
+          <div className={style.item}>
+            <a href='/login'>Try Squirrel</a>
+          </div>
+          <div className={style.item}>
+            <Link to='/features'>Features</Link>
+          </div>
+          <div className={style.item}>
+            <Link to='/download'>Download</Link>
+          </div>
         </section>
         <section className={style.section}>
           <div className={style.title}>Resources</div>
-          <Link className={style.item} to='/blog'>Blog</Link>
-          <Link className={style.item} to='/security'>Security</Link>
-          <Link className={style.item} to='/branding'>Branding</Link>
+          <div className={style.item}>
+            <Link to='/blog'>Blog</Link>
+          </div>
+          <div className={style.item}>
+            <Link to='/security'>Security</Link>
+          </div>
+          <div className={style.item}>
+            <Link to='/branding'>Branding</Link>
+          </div>
         </section>
         <section className={style.section}>
           <div className={style.title}>Open Source</div>
-          <a className={style.item} rel="noreferrer" target='_blank' href='https://github.com/squirrelchat'>GitHub</a>
-          <a className={style.item} rel="noreferrer" target='_blank' href='https://github.com/squirrelchat/website'>Source Code</a>
-          <a className={style.item} rel="noreferrer" target='_blank' href='https://github.com/squirrelchat/squirrel'>Squirrel Core</a>
+          <div className={style.item}>
+            <a rel="noreferrer" target='_blank' href='https://github.com/squirrelchat'>GitHub</a>
+          </div>
+          <div className={style.item}>
+            <a rel="noreferrer" target='_blank' href='https://github.com/squirrelchat/website'>Source Code</a>
+          </div>
+          <div className={style.item}>
+            <a rel="noreferrer" target='_blank' href='https://github.com/squirrelchat/squirrel'>Squirrel Core</a>
+          </div>
         </section>
         <section className={style.section}>
           <div className={style.title}>More</div>
-          <a className={style.item} rel="noreferrer" target='_blank' href='https://discord.gg/zhxhCzN'>Discord</a>
-          <a className={style.item} target='_blank' href='mailto:hi@squirrel.chat'>Email</a>
+          <div className={style.item}>
+            <a rel="noreferrer" target='_blank' href='https://discord.gg/zhxhCzN'>Discord</a>
+          </div>
+          <div className={style.item}>
+            <a target='_blank' href='mailto:hi@squirrel.chat'>Email</a>
+          </div>
         </section>
       </div>
       <Helmet>

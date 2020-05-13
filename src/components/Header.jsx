@@ -1,4 +1,4 @@
-/*!
+/*
  * Copyright (c) 2020 Squirrel Chat, All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,90 +25,46 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import '../vars';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-.container {
-  background-color: inherit;
-  color: $text-white;
-  height: 69px;
-  left: 5%;
-  position: fixed;
-  right: 5%;
-  top: 0;
+import { Logo } from './Icons'
 
-  &:after {
-    background-image: linear-gradient(
-            -90deg,
-            $dark-secondary 0%,
-            $dark-highlight 28%,
-            $dark-highlight 74%,
-            $dark-secondary 100%
-    );
-    bottom: 0;
-    content: '';
-    height: 2px;
-    left: 0;
-    position: absolute;
-    right: 0;
-    width: 100%;
-  }
-}
+import style from '@styles/header.scss'
 
-.contents {
-  align-items: center;
-  display: flex;
-  height: 69px;
-  justify-content: space-between;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 2.5em;
-  padding-right: 2.5em;
+// TODO: Rewrite
+const Header = () => (
+  <header className={style.container}>
+    <div className={style.contents}>
+      <Link to='/' className={style.logo} aria-label="Squirrel Chat">
+        <Logo/>
+      </Link>
+      <nav>
+        <Link to='/features'>
+          Features
+        </Link>
+        <Link to='/install'>
+          Install
+        </Link>
+        <Link to='/blog'>
+          Blog
+        </Link>
+        <a rel='noreferrer' href='https://github.com/squirrelchat' target='_blank'>
+          GitHub
+        </a>
+        <a rel='noreferrer' href='https://discord.gg/zhxhCzN' target='_blank'>
+          Discord
+        </a>
+      </nav>
+      <div className={style.end}>
+        <a href='/login'>Try Squirrel</a>
+        {/* soon:tm: <Tooltip overlay='Change Locale' placement='bottom'>
+          <Translate width={28} height={28}/>
+        </Tooltip> */}
+      </div>
+    </div>
+  </header>
+)
 
-  nav {
-    align-items: center;
-    display: flex;
-    height: 100%;
-
-    a {
-      color: inherit;
-      font-size: 18px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: color .2s;
-
-      &:hover {
-        color: $primary;
-      }
-
-      + a {
-        margin-left: 25px;
-      }
-    }
-  }
-}
-
-.logo {
-  color: $primary;
-  flex-shrink: 0;
-  height: 50px;
-
-  svg {
-    height: 100%;
-  }
-}
-
-.end {
-  align-items: center;
-  display: flex;
-  height: 100%;
-
-  a {
-    color: inherit;
-    margin-right: 15px;
-  }
-
-  svg {
-    cursor: pointer;
-    margin-left: 10px;
-  }
-}
+Header.displayName = 'Header'
+export default React.memo(Header)

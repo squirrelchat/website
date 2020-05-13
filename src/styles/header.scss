@@ -25,73 +25,90 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import '../vars';
+@import './utils/vars';
 
 .container {
-  background-color: $dark-primary;
-  font-size: 14px;
-  min-height: 215px;
-}
+  background-color: inherit;
+  color: $text-white;
+  height: 69px;
+  left: 5%;
+  position: fixed;
+  right: 5%;
+  top: 0;
 
-.section {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 25px;
+  &:after {
+    background-image: linear-gradient(
+            -90deg,
+            $dark-secondary 0%,
+            $dark-highlight 28%,
+            $dark-highlight 74%,
+            $dark-secondary 100%
+    );
+    bottom: 0;
+    content: '';
+    height: 2px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+  }
 }
 
 .contents {
+  align-items: center;
   display: flex;
+  height: 69px;
   justify-content: space-between;
   margin-left: auto;
   margin-right: auto;
-  padding: 2em 1em;
-  flex-wrap: wrap;
-  max-width: 80%;
-  text-align: center;
-}
+  padding-left: 2.5em;
+  padding-right: 2.5em;
 
-.title {
-  height: 32px;
-  font-weight: 600;
-  margin-bottom: 5px;
-}
+  nav {
+    align-items: center;
+    display: flex;
+    height: 100%;
 
-.item {
-  display: block;
-  color: $text-grey;
-  padding-top: 1px;
-  padding-bottom: 1px;
-  margin-bottom: 10px;
-  font-size: 14px;
-  line-height: 20px;
+    a {
+      color: inherit;
+      font-size: 18px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color .2s;
 
-  &.spaced {
-    margin-top: 15px;
+      &:hover {
+        color: $primary;
+      }
+
+      + a {
+        margin-left: 25px;
+      }
+    }
   }
 }
 
-.section:not(:first-child) .item a {
-  color: inherit;
-}
+.logo {
+  color: $primary;
+  flex-shrink: 0;
+  height: 50px;
 
-@media (min-width: 550px) {
-  .section {
-    width: 49%;
-  }
-
-  .item { 
-    margin-bottom: 5px;
+  svg {
+    height: 100%;
   }
 }
 
-@media (min-width: 950px) {
-  .section {
-    width: 20%;
-    margin-bottom: 0;
+.end {
+  align-items: center;
+  display: flex;
+  height: 100%;
+
+  a {
+    color: inherit;
+    margin-right: 15px;
   }
 
-  .item {
-    margin-bottom: 0;
+  svg {
+    cursor: pointer;
+    margin-left: 10px;
   }
 }

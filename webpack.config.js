@@ -52,7 +52,12 @@ const baseConfig = {
     publicPath: '/dist/'
   },
   resolve: {
-    extensions: [ '.js', '.jsx' ]
+    extensions: [ '.js', '.jsx' ],
+    alias: {
+      '@assets': resolve(__dirname, 'src', 'assets'),
+      '@components': resolve(__dirname, 'src', 'components'),
+      '@styles': resolve(__dirname, 'src', 'styles')
+    }
   },
   module: {
     strictExportPresence: true,
