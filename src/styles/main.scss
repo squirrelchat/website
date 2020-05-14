@@ -37,14 +37,19 @@
     margin: 0;
     padding: 0;
     width: 100%;
+    color: $text-normal;
     font-family: 'Open Sans', sans-serif;
     background-color: $dark-secondary;
-    color: $text-normal;
+    text-rendering: optimizeLegibility;
+  }
+
+  #react-root {
+    display: flex;
+    flex-direction: column;
   }
 
   main {
-    height: calc(100% - 215px);
-    padding-top: 69px;
+    flex: 1;
   }
 
   a {

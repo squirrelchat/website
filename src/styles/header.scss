@@ -28,87 +28,118 @@
 @import './utils/vars';
 
 .container {
-  background-color: inherit;
-  color: $text-white;
-  height: 69px;
-  left: 5%;
-  position: fixed;
-  right: 5%;
-  top: 0;
-
-  &:after {
-    background-image: linear-gradient(
-            -90deg,
-            $dark-secondary 0%,
-            $dark-highlight 28%,
-            $dark-highlight 74%,
-            $dark-secondary 100%
-    );
-    bottom: 0;
-    content: '';
-    height: 2px;
-    left: 0;
-    position: absolute;
-    right: 0;
-    width: 100%;
-  }
-}
-
-.contents {
-  align-items: center;
   display: flex;
-  height: 69px;
-  justify-content: space-between;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 2.5em;
-  padding-right: 2.5em;
+  width: 100%;
+  height: 50px;
+  justify-content: center;
+  background-color: $dark-primary;
 
-  nav {
-    align-items: center;
+  .contents {
     display: flex;
     height: 100%;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 
-    a {
-      color: inherit;
-      font-size: 18px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: color .2s;
-
-      &:hover {
-        color: $primary;
+    .logo {
+      color: $primary;
+      padding: 7px 0;
+      display: flex;
+      height: 100%;
+    
+      svg {
+        width: 200px;
       }
+    }
 
-      + a {
-        margin-left: 25px;
+    nav {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      left: 0;
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      transform: translateY(calc(-100% - 50px));
+      transition: transform .3s, opacity .3s;
+      background-color: $dark-primary;
+
+      a {
+        border-top: 1px $dark-highlight solid;
+        padding: 10px 15px;
+        text-align: center;
+        color: inherit;
+      }
+    }
+
+    .hamburger {
+      width: 20px;
+      height: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-right: 16px;
+      cursor: pointer;
+
+      span {
+        width: 100%;
+        height: 2px;
+        background-color: $text-normal;
+        transform-origin: 0 50%;
+        transition: opacity .3s, transform .3s;
       }
     }
   }
 }
 
-.logo {
-  color: $primary;
-  flex-shrink: 0;
-  height: 50px;
+.container.opened .contents {
+  nav {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-  svg {
-    height: 100%;
+  .hamburger {
+    span:nth-child(1) { transform: rotate(45deg) }
+    span:nth-child(2) { opacity: 0 }
+    span:nth-child(3) { transform: rotate(-45deg) }
   }
 }
 
-.end {
-  align-items: center;
-  display: flex;
-  height: 100%;
+@media(min-width: 1100px) {
+  .container {
+    background-color: transparent;
+    height: 69px;
 
-  a {
-    color: inherit;
-    margin-right: 15px;
-  }
+    .contents {
+      width: 80%;
 
-  svg {
-    cursor: pointer;
-    margin-left: 10px;
+      nav {
+        position: initial;
+        transform: initial;
+        transition: initial;
+        background-color: transparent;
+        flex-direction: row;
+        opacity: 1;
+
+        a {
+          border: none;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: .4px;
+          margin-left: 5px;
+
+          &.button {
+            color: $primary;
+            border-radius: 5px;
+            margin-left: 15px;
+            background-color: $dark-primary;
+          }
+        }
+      }
+
+      .hamburger {
+        display: none;
+      }
+    }
   }
 }

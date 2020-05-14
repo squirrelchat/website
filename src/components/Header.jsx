@@ -32,39 +32,41 @@ import { Logo } from './Icons'
 
 import style from '@styles/header.scss'
 
-// TODO: Rewrite
-const Header = () => (
-  <header className={style.container}>
-    <div className={style.contents}>
-      <Link to='/' className={style.logo} aria-label="Squirrel Chat">
-        <Logo/>
-      </Link>
-      <nav>
-        <Link to='/features'>
-          Features
+const Header = () => {
+  // Hooks
+  const [ opened, setOpened ] = React.useState(true)
+  const toggle = React.useCallback(() => setOpened(!opened), [ opened ])
+  React.useEffect(() => {
+    if (opened) {
+      window.addEventListener('click', toggle)
+      return () => window.removeEventListener('click', toggle)
+    }
+  }, [ opened ])
+
+  // Render
+  return (
+    <header className={[ style.container, opened && style.opened ].filter(Boolean).join(' ')}>
+      <div className={style.contents}>
+        <Link to='/' className={style.logo} aria-label="Squirrel Chat">
+          <Logo/>
         </Link>
-        <Link to='/install'>
-          Install
-        </Link>
-        <Link to='/blog'>
-          Blog
-        </Link>
-        <a rel='noreferrer' href='https://github.com/squirrelchat' target='_blank'>
-          GitHub
-        </a>
-        <a rel='noreferrer' href='https://discord.gg/zhxhCzN' target='_blank'>
-          Discord
-        </a>
-      </nav>
-      <div className={style.end}>
-        <a href='/login'>Try Squirrel</a>
-        {/* soon:tm: <Tooltip overlay='Change Locale' placement='bottom'>
-          <Translate width={28} height={28}/>
-        </Tooltip> */}
+        <nav>
+          <Link to='/features'>Features</Link>
+          <Link to='/download'>Download</Link>
+          <Link to='/blog'>Blog</Link>
+          <a rel='noreferrer' href='https://github.com/squirrelchat' target='_blank'>GitHub</a>
+          <a rel='noreferrer' href='https://discord.gg/zhxhCzN' target='_blank'>Discord</a>
+          <a className={style.button} href='/login'>Try Squirrel</a>
+        </nav>
+        <div className={style.hamburger} onClick={toggle}>
+          <span/>
+          <span/>
+          <span/>
+        </div>
       </div>
-    </div>
-  </header>
-)
+    </header>
+  )
+}
 
 Header.displayName = 'Header'
 export default React.memo(Header)
