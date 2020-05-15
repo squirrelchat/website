@@ -26,13 +26,40 @@
  */
 
 import React from 'react'
-import { Switch } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 
-import ComingSoon from '@components/ComingSoon'
+import Home from './Home'
+import BlogRouter from './Blog/Router'
+import ComingSoon from './ComingSoon'
 
 const Router = () => (
-  <ComingSoon/>
+  <Switch>
+    <Route path='/' exact>
+      <Home/>
+    </Route>
+    <Route path='/features' exact>
+      <ComingSoon/>
+    </Route>
+    <Route path='/download' exact>
+      <ComingSoon/>
+    </Route>
+    <Route path='/security' exact>
+      <ComingSoon/>
+    </Route>
+    <Route path='/branding' exact>
+      <ComingSoon/>
+    </Route>
+    <Route path='/about-us' exact>
+      <ComingSoon/>
+    </Route>
+    <Route path='/blog'>
+      <BlogRouter/>
+    </Route>
+    <Route>
+        404
+    </Route>
+  </Switch>
 )
 
-Router.displayName = 'BlogRouter'
+Router.displayName = 'SquirrelRouterSSR'
 export default React.memo(Router)

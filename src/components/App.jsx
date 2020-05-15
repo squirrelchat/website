@@ -30,9 +30,12 @@ import { Helmet } from 'react-helmet'
 
 import Header from './Header'
 import Footer from './Footer'
-import Router from './Router'
+import RouterCSR from './Router'
+import RouterSSR from './RouterSSR'
 
 import '@styles/main.scss'
+
+const Router = process.env.BUILD_SIDE === 'server' ? RouterSSR : RouterCSR
 
 const App = () => (
   <>

@@ -54,9 +54,9 @@ const baseConfig = {
   resolve: {
     extensions: [ '.js', '.jsx' ],
     alias: {
-      '@assets': resolve(__dirname, 'src', 'assets'),
       '@components': resolve(__dirname, 'src', 'components'),
-      '@styles': resolve(__dirname, 'src', 'styles')
+      '@styles': resolve(__dirname, 'src', 'styles'),
+      '@assets': resolve(__dirname, 'src', 'assets')
     }
   },
   module: {
@@ -225,7 +225,8 @@ if (isDev) {
     },
     plugins: [
       ...baseConfig.plugins.slice(1),
-      new LimitChunkCountPlugin({ maxChunks: 1 })
+      new LimitChunkCountPlugin({ maxChunks: 1 }),
+      new DefinePlugin({ 'process.env.BUILD_SIDE': JSON.stringify('server') })
     ],
     optimization: {
       ...baseConfig.optimization,
