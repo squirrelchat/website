@@ -30,6 +30,7 @@ import { Helmet } from 'react-helmet'
 
 import Header from './Header'
 import Footer from './Footer'
+import Router from './Router'
 
 import '@styles/main.scss'
 
@@ -62,21 +63,11 @@ const App = () => (
       <link href='https://fonts.gstatic.com' rel='preconnect' crossorigin/>
 
       <link rel='shortcut icon' href={require('@assets/squirrel.ico').default}/>
-      <link href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap' rel='stylesheet'/>
+      <link href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap' rel='stylesheet'/>
     </Helmet>
     <Header/>
     <main>
-      <div style={{
-        fontSize: 50,
-        fontWeight: 600,
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}>
-        Coming Soon
-      </div>
+      <Router/>
     </main>
     <Footer/>
   </>

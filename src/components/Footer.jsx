@@ -100,6 +100,9 @@ const Footer = () => {
         <section className={style.section}>
           <div className={style.title}>More</div>
           <div className={style.item}>
+            <Link to='/about-us'>About Us</Link>
+          </div>
+          <div className={style.item}>
             <a rel="noreferrer" target='_blank' href='https://discord.gg/zhxhCzN'>Discord</a>
           </div>
           <div className={style.item}>

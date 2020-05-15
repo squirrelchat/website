@@ -33,6 +33,8 @@
   height: 50px;
   justify-content: center;
   background-color: $dark-primary;
+  position: relative;
+  z-index: 1;
 
   .contents {
     display: flex;
@@ -128,11 +130,14 @@
           letter-spacing: .4px;
           margin-left: 5px;
 
+          &.current {
+            color: $primary;
+          }
+
           &.button {
             color: $primary;
             border-radius: 5px;
-            margin-left: 15px;
-            background-color: $dark-primary;
+            background-color: $dark-highlight;
           }
         }
       }

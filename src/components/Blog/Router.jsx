@@ -26,47 +26,17 @@
  */
 
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Switch } from 'react-router-dom'
 
-import { Logo } from './Icons'
+import ComingSoon from '@components/ComingSoon'
 
-import style from '@styles/header.scss'
+const Router = () => (
+  <React.Suspense fallback={null}>
+    <Switch>
+      <ComingSoon/>
+    </Switch>
+  </React.Suspense>
+)
 
-const Header = () => {
-  // Hooks
-  const [ opened, setOpened ] = React.useState(true)
-  const toggle = React.useCallback(() => setOpened(!opened), [ opened ])
-  React.useEffect(() => {
-    if (opened) {
-      window.addEventListener('click', toggle)
-      return () => window.removeEventListener('click', toggle)
-    }
-  }, [ opened ])
-
-  // Render
-  return (
-    <header className={[ style.container, opened && style.opened ].filter(Boolean).join(' ')}>
-      <div className={style.contents}>
-        <Link to='/' className={style.logo} aria-label="Squirrel Chat">
-          <Logo/>
-        </Link>
-        <nav>
-          <NavLink activeClassName={style.current} to='/features'>Features</NavLink>
-          <NavLink activeClassName={style.current} to='/download'>Download</NavLink>
-          <NavLink activeClassName={style.current} to='/blog'>Blog</NavLink>
-          <a rel='noreferrer' href='https://github.com/squirrelchat' target='_blank'>GitHub</a>
-          <a rel='noreferrer' href='https://discord.gg/zhxhCzN' target='_blank'>Discord</a>
-          <a className={style.button} href='/login'>Try Squirrel</a>
-        </nav>
-        <div className={style.hamburger} onClick={toggle}>
-          <span/>
-          <span/>
-          <span/>
-        </div>
-      </div>
-    </header>
-  )
-}
-
-Header.displayName = 'Header'
-export default React.memo(Header)
+Router.displayName = 'BlogRouter'
+export default React.memo(Router)
