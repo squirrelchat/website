@@ -30,6 +30,17 @@
 .container {
   background-color: $dark-primary;
   font-size: 14px;
+}
+
+.contents {
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2em 1em;
+  flex-wrap: wrap;
+  max-width: 80%;
+  text-align: center;
   min-height: 215px;
 }
 
@@ -43,17 +54,6 @@
     width: 100%;
     margin-bottom: 50px;
   }
-}
-
-.contents {
-  display: flex;
-  justify-content: space-between;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 2em 1em;
-  flex-wrap: wrap;
-  max-width: 80%;
-  text-align: center;
 }
 
 .title {

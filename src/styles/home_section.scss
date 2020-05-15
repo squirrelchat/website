@@ -28,7 +28,7 @@
 @import './utils/vars';
 
 .container {
-  margin-bottom: 32px;
+  margin-bottom: 46px;
 
   h3 {
     margin: 0;
@@ -39,5 +39,9 @@
   p {
     font-size: 16px;
     line-height: 24px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 }
