@@ -123,24 +123,26 @@
   img {
     margin-right: 16px;
     border-radius: 50%;
+    flex-shrink: 0;
+    height: 96px;
     width: 96px;
   }
 
   .name {
     display: flex;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: 600;
+  }
 
-    span {
-      margin-right: 8px;
-      font-size: 24px;
-      font-weight: 600;
-    }
+  .links {
+    display: flex;
+    margin-bottom: 12px;
 
     a {
-      width: 24px;
-      height: 24px;
-      margin-left: 4px;
+      display: block;
+      margin-right: 12px;
       color: inherit;
       transition: color .2s;
 

@@ -34,8 +34,8 @@ const TeamMember = ({ name, avatar, links, children }) => (
   <div className={style.member}>
     <img src={avatar} alt={`${name}'s avatar`}/>
     <div className={style.contents}>
-      <div className={style.name}>
-        <span>{name}</span>
+      <div className={style.name}>{name}</div>
+      <div className={style.links}>
         {links.map(link => <a key={link.href} href={link.href} aria-label={link.name} rel='noreferrer' target='_blank'>
           {React.createElement(Icons[link.icon])}
         </a>)}
