@@ -34,7 +34,7 @@ import style from '@styles/header.scss'
 
 const Header = () => {
   // Hooks
-  const [ opened, setOpened ] = React.useState(true)
+  const [ opened, setOpened ] = React.useState(false)
   const toggle = React.useCallback(() => setOpened(!opened), [ opened ])
   React.useEffect(() => {
     if (opened) {

@@ -33,17 +33,18 @@ import { WordMark } from './Icons'
 
 import style from '@styles/footer.scss'
 
-const squirrels = [
+const comment = [
   'Squirrels are cute 🧡',
   'Powered by squirrels!',
-  <a rel='noreferrer' href='https://en.wikipedia.org/wiki/Squirrel' target='_blank'>"Squirrel" Wikipedia article</a>
+  'The ability to run it on Windows is purely a byproduct',
+  <>Strong concentration of C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub> ahead</>
 ]
 
 const Footer = () => {
   // Random squirrel comment
   const random = React.useMemo(() => {
     const saved = typeof document !== 'undefined' ? document.body.dataset['rng-footer'] : null
-    return saved || Math.floor(Math.random() * squirrels.length)
+    return saved || Math.floor(Math.random() * comment.length)
   }, [])
 
   // Rendering
@@ -59,7 +60,7 @@ const Footer = () => {
             <a href='https://github.com/squirrelchat/website/blob/master/LICENSE' rel='noreferrer' target='_blank'>License</a> -
             BSD-3-Clause
           </div>
-          <div className={[ style.item, style.spaced ].join(' ')}>{squirrels[random]}</div>
+          <div className={[ style.item, style.comment ].join(' ')}>{comment[random]}</div>
         </section>
         <section className={style.section}>
           <div className={style.title}>Project</div>
@@ -68,6 +69,9 @@ const Footer = () => {
           </div>
           <div className={style.item}>
             <Link to='/features'>Features</Link>
+          </div>
+          <div className={style.item}>
+            <Link to='/for-enterprises'>For Enterprises</Link>
           </div>
           <div className={style.item}>
             <Link to='/download'>Download</Link>

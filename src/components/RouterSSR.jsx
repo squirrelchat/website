@@ -29,6 +29,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
 import Home from './Home'
+import AboutUs from './AboutUs'
 import BlogRouter from './Blog/Router'
 import ComingSoon from './ComingSoon'
 
@@ -38,6 +39,9 @@ const Router = () => (
       <Home/>
     </Route>
     <Route path='/features' exact>
+      <ComingSoon/>
+    </Route>
+    <Route path='/for-enterprises' exact>
       <ComingSoon/>
     </Route>
     <Route path='/download' exact>
@@ -50,13 +54,13 @@ const Router = () => (
       <ComingSoon/>
     </Route>
     <Route path='/about-us' exact>
-      <ComingSoon/>
+      <AboutUs/>
     </Route>
     <Route path='/blog'>
       <BlogRouter/>
     </Route>
     <Route>
-        404
+      404
     </Route>
   </Switch>
 )

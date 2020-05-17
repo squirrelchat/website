@@ -1,4 +1,4 @@
-/*!
+/*
  * Copyright (c) 2020 Squirrel Chat, All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,86 +25,18 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import './utils/vars';
+import React from 'react'
 
-.container {
-  background-color: $dark-primary;
-  font-size: 14px;
-}
+import * as Icons from '@components/Icons'
 
-.contents {
-  display: flex;
-  justify-content: space-between;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 2em 1em;
-  flex-wrap: wrap;
-  max-width: 80%;
-  text-align: center;
-  min-height: 215px;
-}
+import style from '@styles/page_section.scss'
 
-.section {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 25px;
+const Section = props => (
+  <section className={[ style.container, props.className ].filter(Boolean).join(' ')}>
+    <h3>{props.icon && React.createElement(Icons[props.icon])} {props.title}</h3>
+    <p>{props.children}</p>
+  </section>
+)
 
-  &:first-child {
-    width: 100%;
-    margin-bottom: 50px;
-  }
-}
-
-.title {
-  height: 32px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  width: 100%;
-}
-
-.item {
-  display: block;
-  color: $text-grey;
-  padding-top: 1px;
-  padding-bottom: 1px;
-  margin-bottom: 10px;
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.comment {
-  margin-top: 15px;
-  max-width: 220px;
-  margin-left: auto;
-  margin-right: auto;
-
-  sub {
-    line-height: 16px;
-  }
-}
-
-.section:not(:first-child) .item a {
-  color: inherit;
-}
-
-@media (min-width: 550px) {
-  .section {
-    width: 49%;
-  }
-
-  .item { 
-    margin-bottom: 5px;
-  }
-}
-
-@media (min-width: 950px) {
-  .section, .section:first-child {
-    width: 20%;
-    margin-bottom: 0;
-  }
-
-  .item {
-    margin-bottom: 0;
-  }
-}
+Section.displayName = 'PageSection'
+export default React.memo(Section)

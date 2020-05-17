@@ -31,6 +31,7 @@ import { Switch, Route } from 'react-router-dom'
 import ComingSoon from './ComingSoon'
 
 const Home = React.lazy(() => import('./Home'))
+const AboutUs = React.lazy(() => import('./AboutUs'))
 const BlogRouter = React.lazy(() => import('./Blog/Router'))
 
 const Router = () => (
@@ -40,6 +41,9 @@ const Router = () => (
         <Home/>
       </Route>
       <Route path='/features' exact>
+        <ComingSoon/>
+      </Route>
+      <Route path='/for-enterprises' exact>
         <ComingSoon/>
       </Route>
       <Route path='/download' exact>
@@ -52,10 +56,13 @@ const Router = () => (
         <ComingSoon/>
       </Route>
       <Route path='/about-us' exact>
-        <ComingSoon/>
+        <AboutUs/>
       </Route>
       <Route path='/blog'>
         <BlogRouter/>
+      </Route>
+      <Route path='/login'>
+        <ComingSoon/>
       </Route>
       <Route>
         404

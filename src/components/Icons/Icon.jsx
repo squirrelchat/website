@@ -37,6 +37,6 @@ export default (name, viewBox, paths) => {
   )
 
   Icon.defaultProps = { width: 24, height: 24 }
-  Icon.displayName = name
+  Icon.displayName = `Icon(${name})`
   return React.memo(Icon)
 }

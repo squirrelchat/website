@@ -1,4 +1,4 @@
-/*!
+/*
  * Copyright (c) 2020 Squirrel Chat, All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,86 +25,42 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import './utils/vars';
+import React from 'react'
+import { Helmet } from 'react-helmet'
 
-.container {
-  background-color: $dark-primary;
-  font-size: 14px;
-}
+import Values from './Values'
+import FromToulouse from './FromToulouse'
+import MeetTheTeam from './MeetTheTeam'
 
-.contents {
-  display: flex;
-  justify-content: space-between;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 2em 1em;
-  flex-wrap: wrap;
-  max-width: 80%;
-  text-align: center;
-  min-height: 215px;
-}
+import style from '@styles/about_us.scss'
 
-.section {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 25px;
+const AboutUs = () => (
+  <>
+    <Helmet>
+      <title>About Us</title>
+      <meta property='og:title' content='About Us'/>
+      <meta name='description' content='Learn more about who we are and what we do'/>
+      <meta property='og:description' content='Learn more about who we are and what we do'/>
+    </Helmet>
+    <section className={style.colored}>
+      <div className={style.container}>
+        <h2>Empowering online relationships</h2>
+        <p>
+          The ecosystem of online chatting went a long way. From old forum full of gifs (pronounced /ɡɪf/) it
+          eventually evolved to IRC channels, Skype groups, <s>cracked</s> TeamSpeak servers and nowadays Discord
+          servers.
+        </p>
+        <p>
+          We want this ecosystem to keep going forward. Either if you're a group of friends, a Warcraft guild, a
+          family, or even a company, Squirrel provides you the right tools to hang out.
+        </p>
+      </div>
+    </section>
+    <Values/>
+    <FromToulouse/>
+    <MeetTheTeam/>
+  </>
+)
 
-  &:first-child {
-    width: 100%;
-    margin-bottom: 50px;
-  }
-}
-
-.title {
-  height: 32px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  width: 100%;
-}
-
-.item {
-  display: block;
-  color: $text-grey;
-  padding-top: 1px;
-  padding-bottom: 1px;
-  margin-bottom: 10px;
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.comment {
-  margin-top: 15px;
-  max-width: 220px;
-  margin-left: auto;
-  margin-right: auto;
-
-  sub {
-    line-height: 16px;
-  }
-}
-
-.section:not(:first-child) .item a {
-  color: inherit;
-}
-
-@media (min-width: 550px) {
-  .section {
-    width: 49%;
-  }
-
-  .item { 
-    margin-bottom: 5px;
-  }
-}
-
-@media (min-width: 950px) {
-  .section, .section:first-child {
-    width: 20%;
-    margin-bottom: 0;
-  }
-
-  .item {
-    margin-bottom: 0;
-  }
-}
+AboutUs.displayName = 'AboutUs'
+export default React.memo(AboutUs)

@@ -1,4 +1,4 @@
-/*!
+/*
  * Copyright (c) 2020 Squirrel Chat, All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,86 +25,19 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-@import './utils/vars';
+import React from 'react'
 
-.container {
-  background-color: $dark-primary;
-  font-size: 14px;
-}
+import style from '@styles/about_us.scss'
 
-.contents {
-  display: flex;
-  justify-content: space-between;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 2em 1em;
-  flex-wrap: wrap;
-  max-width: 80%;
-  text-align: center;
-  min-height: 215px;
-}
+const FromToulouse = () => (
+  <section className={style.colored}>
+    <div className={style.container}>
+      <h2>Proudly built in the best French city</h2>
+      <p>Being US-based is so 2015. Squirrel is built by a small team of students and tech enthusiasts from
+        the <span class={style.pink}>Pink City</span>, more commonly known as Toulouse.</p>
+    </div>
+  </section>
+)
 
-.section {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 25px;
-
-  &:first-child {
-    width: 100%;
-    margin-bottom: 50px;
-  }
-}
-
-.title {
-  height: 32px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  width: 100%;
-}
-
-.item {
-  display: block;
-  color: $text-grey;
-  padding-top: 1px;
-  padding-bottom: 1px;
-  margin-bottom: 10px;
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.comment {
-  margin-top: 15px;
-  max-width: 220px;
-  margin-left: auto;
-  margin-right: auto;
-
-  sub {
-    line-height: 16px;
-  }
-}
-
-.section:not(:first-child) .item a {
-  color: inherit;
-}
-
-@media (min-width: 550px) {
-  .section {
-    width: 49%;
-  }
-
-  .item { 
-    margin-bottom: 5px;
-  }
-}
-
-@media (min-width: 950px) {
-  .section, .section:first-child {
-    width: 20%;
-    margin-bottom: 0;
-  }
-
-  .item {
-    margin-bottom: 0;
-  }
-}
+FromToulouse.displayName = 'FromToulouse'
+export default React.memo(FromToulouse)

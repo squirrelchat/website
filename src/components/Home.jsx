@@ -28,7 +28,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import Section from './Section'
+import PageSection from '@components/PageSection'
 
 import style from '@styles/home.scss'
 
@@ -49,24 +49,28 @@ const Home = () => (
       </div>
     </div>
     <div className={style.container}>
-      <Section title='Simple, yet powerful'>
+      <PageSection icon='Feather' title='Simple, yet powerful'>
         A straightforward UI, simple to understand and get used to. A UI doesn't have to be exessively complex and
         require hours of work as well as a PhD to get something done (Looking at you, TeamSpeak!). Squirrel's UI is
         intuitive and requires minimum amount of work while still packing <Link to='/features'>a lot of features</Link>.
-      </Section>
-      <Section title='Privacy, done right'>
+      </PageSection>
+      <PageSection icon='Shield' title='Privacy, done right'>
         Squirrel uses by default strong military-grade encryption on all private conversations to prevent any
         intruders to see what you've sent to other people. Text, voice and video conversations as well as attachments
         are all <Link to='/features#encryption'>kept secure</Link>.
-      </Section>
-      <Section title='Open-Source, for the better'>
+      </PageSection>
+      <PageSection icon='BriefCase' title='Tailored for enterprise needs'>
+        Communication in an enterprise is extremely important, and the 2020 pandemic shown the critical need
+        of <Link to='/for-enterprises'>robust technology</Link> for remote working and organization.
+      </PageSection>
+      <PageSection icon='GitBranch' title='Open-Source, for the better'>
         All of the components used in the Squirrel Stack are open-sourced and available on GitHub under the
         BSD-3-Clause license. A lot more transparency, and eyes to spot bugs in the wild. Also a lot more eyes
         to keep track of potential <Link to='/security'>security issues</Link>.
-      </Section>
-      <Section title='Try it now!'>
+      </PageSection>
+      <PageSection icon='Navigation' title='Try it now!'>
         Get youself a Squirrel account now and start chatting with your friends! <a href="/login">Try Squirrel</a>
-      </Section>
+      </PageSection>
     </div>
   </>
 )

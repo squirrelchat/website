@@ -27,14 +27,43 @@
 
 import React from 'react'
 
-import style from '@styles/home_section.scss'
+import TeamMember from './TeamMember'
 
-const Section = props => (
+import style from '@styles/about_us.scss'
+
+const MeetTheTeam = () => (
   <section className={style.container}>
-    <h3>{props.title}</h3>
-    <p>{props.children}</p>
+    <h2>Meet the team</h2>
+    <TeamMember
+      avatar={require('@assets/team/bowoser.png').default}
+      name='Bowser65'
+      links={[
+        { icon: 'Discord', name: 'Discord', href: 'https://discord.gg/DXKgqrP' },
+        { icon: 'GitHub', name: 'GitHub', href: 'https://github.com/Bowser65' },
+        { icon: 'Twitter', name: 'Twitter', href: 'https://twitter.com/Bowser65' },
+        { icon: 'Telegram', name: 'Telegram', href: 'https://t.me/Bowser65' },
+        { icon: 'Globe', name: 'Website', href: 'https://bowser65.xyz' }
+      ]}
+    >
+      PhD of Surrender Science. My favorite chemical elements are helium, nitrogen, tantalum, and iodine. Addicted
+      to caffeine and specialized in breaking things and having stupid ideas. Arch user btw.
+    </TeamMember>
+    <TeamMember
+      avatar={require('@assets/team/vinceh121.png').default}
+      name='vinceh121'
+      links={[
+        { icon: 'Reddit', name: 'Reddit', href: 'https://reddit.com/u/vinceh121' },
+        { icon: 'Discord', name: 'Discord', href: 'https://discord.gg/RMByRMg' },
+        { icon: 'Twitter', name: 'Twitter', href: 'https://twitter.com/vinceh121' },
+        { icon: 'GitHub', name: 'GitHub', href: 'https://github.com/vinceh121' },
+        { icon: 'GitLab', name: 'GitLab', href: 'https://gitlab.com/vinceh121' },
+        { icon: 'Telegram', name: 'Telegram', href: 'https://t.me/vinceh121' }
+      ]}
+    >
+      Please insert bio here: _
+    </TeamMember>
   </section>
 )
 
-Section.displayName = 'HomeSection'
-export default React.memo(Section)
+MeetTheTeam.displayName = 'MeetTheTeam'
+export default React.memo(MeetTheTeam)
