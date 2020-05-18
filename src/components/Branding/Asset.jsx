@@ -27,16 +27,17 @@
 
 import React from 'react'
 
-import * as Icons from '@components/Icons'
+import style from '@styles/branding.scss'
 
-import style from '@styles/page_section.scss'
-
-const Section = (props) => (
-  <section className={[ style.container, props.className ].filter(Boolean).join(' ')}>
-    <h3>{props.icon && React.createElement(Icons[props.icon])} {props.title}</h3>
-    <p>{props.children}</p>
-  </section>
+const Asset = ({ svg, png, name }) => (
+  <div className={[ style.asset, name.endsWith('black') && style.inverted ].filter(Boolean).join(' ')}>
+    <img src={svg} alt=''/>
+    <div className={style.links}>
+      <a href={svg} download={name} target='_blank'>.svg</a>
+      <a href={svg} download={name} target='_blank'>.png</a>
+    </div>
+  </div>
 )
 
-Section.displayName = 'PageSection'
-export default React.memo(Section)
+Asset.displayName = 'BrandingAsset'
+export default React.memo(Asset)

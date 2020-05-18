@@ -26,6 +26,7 @@
  */
 
 @import './utils/vars';
+@import './utils/constants';
 
 :global {
   * {
@@ -80,5 +81,14 @@
     border: 0 $dark-secondary solid;
     border-left-width: 1px;
     border-right-width: 1px;
+  }
+}
+
+.container {
+  @extend %container;
+
+  h2 {
+    margin-top: 42px;
+    margin-bottom: 16px;
   }
 }

@@ -30,6 +30,7 @@ import Icon from './Icon'
 export { default as Logo } from './Logo'
 export { default as Squirrel } from './Squirrel'
 export { default as WordMark } from './WordMark'
+export { default as BrandingMark } from './BrandingMark'
 
 export const Translate = Icon(
   'Translate',

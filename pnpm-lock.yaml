@@ -1,6 +1,8 @@
 dependencies:
   mime-types: 2.1.27
   react: 16.13.1
+  react-async-bootstrapper: 2.1.1_react-dom@16.13.1+react@16.13.1
+  react-async-component: github.com/discord/react-async-component/0ca498b4a07ce99ad4dfbb44ed16be9333d2f090_react-dom@16.13.1+react@16.13.1
   react-dom: 16.13.1_react@16.13.1
   react-helmet: 6.0.0_react@16.13.1
   react-router: 5.1.2_react@16.13.1
@@ -7519,6 +7521,17 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==
+  /react-async-bootstrapper/2.1.1_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      react: 16.13.1
+      react-dom: 16.13.1_react@16.13.1
+      react-tree-walker: 4.3.0_react@16.13.1
+    dev: false
+    peerDependencies:
+      react: ^0.14.0 || ^15.0.0 || ^16.0.0
+      react-dom: ^0.14.0 || ^15.0.0 || ^16.0.0
+    resolution:
+      integrity: sha512-VB2TB3KGnCGNKmZtfCdE8R3kuwDqm5KW1wK5R5yDBkTkkKcjaot+QNU63oudUGRyNgwEs6HlKTyD78llfCM2ng==
   /react-dom/16.13.1_react@16.13.1:
     dependencies:
       loose-envify: 1.4.0
@@ -7597,6 +7610,14 @@ packages:
       react: ^16.3.0
     resolution:
       integrity: sha512-IgmcegOSi5SNX+2Snh1vqmF0Vg/CbkycU9XZbOHJlZ6kMzTmi3yc254oB1WCkgA7OQtIAoLmcSFuHTc/tlcqXg==
+  /react-tree-walker/4.3.0_react@16.13.1:
+    dependencies:
+      react: 16.13.1
+    dev: false
+    peerDependencies:
+      react: ^0.14.0 || ^15.0.0 || ^16.0.0
+    resolution:
+      integrity: sha512-sO/pk+JQ2mbtPGdlKbeeo2aT4qXl5nPkGVO96yYQOdX9jYvRNXSnMWIydniLVEoiPvUbpfoc057blGbAQgMBRg==
   /react/16.13.1:
     dependencies:
       loose-envify: 1.4.0
@@ -9732,6 +9753,20 @@ packages:
     optional: true
     resolution:
       integrity: sha1-x+sXyT4RLLEIb6bY5R+wZnt5pfk=
+  github.com/discord/react-async-component/0ca498b4a07ce99ad4dfbb44ed16be9333d2f090_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      react: 16.13.1
+      react-dom: 16.13.1_react@16.13.1
+    dev: false
+    id: github.com/discord/react-async-component/0ca498b4a07ce99ad4dfbb44ed16be9333d2f090
+    name: react-async-component
+    peerDependencies:
+      prop-types: ^15.0.0
+      react: ^0.14.0 || ^15.0.0 || ^16.0.0
+      react-dom: ^0.14.0 || ^15.0.0 || ^16.0.0
+    resolution:
+      tarball: 'https://codeload.github.com/discord/react-async-component/tar.gz/0ca498b4a07ce99ad4dfbb44ed16be9333d2f090'
+    version: 2.0.1
 specifiers:
   '@babel/core': ^7.9.6
   '@babel/plugin-proposal-object-rest-spread': ^7.9.6
@@ -9760,6 +9795,8 @@ specifiers:
   optimize-css-assets-webpack-plugin: ^5.0.3
   postcss-loader: ^3.0.0
   react: ^16.13.1
+  react-async-bootstrapper: ^2.1.1
+  react-async-component: discord/react-async-component
   react-dom: ^16.13.1
   react-helmet: ^6.0.0
   react-refresh: ^0.8.2

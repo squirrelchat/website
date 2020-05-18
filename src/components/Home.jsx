@@ -69,7 +69,7 @@ const Home = () => (
         to keep track of potential <Link to='/security'>security issues</Link>.
       </PageSection>
       <PageSection icon='Navigation' title='Try it now!'>
-        Get youself a Squirrel account now and start chatting with your friends! <a href="/login">Try Squirrel</a>
+        Get youself a Squirrel account now and start chatting with your friends! <a href='/login'>Try Squirrel</a>
       </PageSection>
     </div>
   </>

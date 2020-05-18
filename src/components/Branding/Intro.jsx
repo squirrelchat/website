@@ -27,16 +27,25 @@
 
 import React from 'react'
 
-import * as Icons from '@components/Icons'
+import { BrandingMark } from '@components/Icons'
 
-import style from '@styles/page_section.scss'
-
-const Section = (props) => (
-  <section className={[ style.container, props.className ].filter(Boolean).join(' ')}>
-    <h3>{props.icon && React.createElement(Icons[props.icon])} {props.title}</h3>
-    <p>{props.children}</p>
-  </section>
+const Intro = () => (
+  <>
+    <BrandingMark height={70}/>
+    <section>
+      <p>
+        We've gathered all of our visual beauty here for you to admire, or eventually use it to link back to us. We
+        don't take ourselves too seriously, but we want to keep things quality so if you're unsure about your use of
+        our assets you can <a target='_blank' href='mailto:hi@squirrel.chat'>send it our way for approval</a>. If
+        it's beautiful enough you might even earn a virtual cookie!
+      </p>
+      <p>
+        The Squirrel logo has been designed by <a rel='noreferrer' target='_blank' href='https://eliasrokhaug.myportfolio.com'>Elias Rokhaug</a>,
+        and the font used in our wordmark is "Grand Hotel", licensed under the <a rel='noreferrer' target='_blank' href='https://fontsquirrel.com/license/grand-hotel'>SIL Open Font License 1.1</a>.
+      </p>
+    </section>
+  </>
 )
 
-Section.displayName = 'PageSection'
-export default React.memo(Section)
+Intro.displayName = 'BrandingIntro'
+export default React.memo(Intro)

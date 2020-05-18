@@ -92,13 +92,13 @@ const Footer = () => {
         <section className={style.section}>
           <div className={style.title}>Open Source</div>
           <div className={style.item}>
-            <a rel="noreferrer" target='_blank' href='https://github.com/squirrelchat'>GitHub</a>
+            <a rel='noreferrer' target='_blank' href='https://github.com/squirrelchat'>GitHub</a>
           </div>
           <div className={style.item}>
-            <a rel="noreferrer" target='_blank' href='https://github.com/squirrelchat/website'>Source Code</a>
+            <a rel='noreferrer' target='_blank' href='https://github.com/squirrelchat/website'>Source Code</a>
           </div>
           <div className={style.item}>
-            <a rel="noreferrer" target='_blank' href='https://github.com/squirrelchat/squirrel'>Squirrel Core</a>
+            <a rel='noreferrer' target='_blank' href='https://github.com/squirrelchat/squirrel'>Squirrel Core</a>
           </div>
         </section>
         <section className={style.section}>
@@ -107,7 +107,7 @@ const Footer = () => {
             <Link to='/about-us'>About Us</Link>
           </div>
           <div className={style.item}>
-            <a rel="noreferrer" target='_blank' href='https://discord.gg/zhxhCzN'>Discord</a>
+            <a rel='noreferrer' target='_blank' href='https://discord.gg/zhxhCzN'>Discord</a>
           </div>
           <div className={style.item}>
             <a target='_blank' href='mailto:hi@squirrel.chat'>Email</a>

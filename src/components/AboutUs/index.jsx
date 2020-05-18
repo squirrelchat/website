@@ -41,8 +41,6 @@ const AboutUs = () => (
       <meta property='og:title' content='About Us'/>
       <meta name='description' content='Learn more about who we are and what we do'/>
       <meta property='og:description' content='Learn more about who we are and what we do'/>
-      <link rel='canonical' href='https://squirrel.chat/about-us'/>
-      <meta property='og:url' content='https://squirrel.chat/about-us'/>
     </Helmet>
     <section className={style.colored}>
       <div className={style.container}>

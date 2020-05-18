@@ -39,8 +39,8 @@ const MeetTheTeam = () => (
       name='Bowser65'
       links={[
         { icon: 'Discord', name: 'Discord', href: 'https://discord.gg/DXKgqrP' },
-        { icon: 'GitHub', name: 'GitHub', href: 'https://github.com/Bowser65' },
         { icon: 'Twitter', name: 'Twitter', href: 'https://twitter.com/Bowser65' },
+        { icon: 'GitHub', name: 'GitHub', href: 'https://github.com/Bowser65' },
         { icon: 'Telegram', name: 'Telegram', href: 'https://t.me/Bowser65' },
         { icon: 'Globe', name: 'Website', href: 'https://bowser65.xyz' }
       ]}

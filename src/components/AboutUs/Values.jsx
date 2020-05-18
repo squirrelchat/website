@@ -38,25 +38,25 @@ const value = text => <span>We value <em>{text}</em></span>
 const Values = () => (
   <section className={style.container}>
     <h2>Squirrel is built on top of 4 values</h2>
-    <PageSection icon='MessageCircle' title={value('freedom of speech')}>
+    <PageSection icon='MessageCircle' title={value('freedom of speech')} noWrap>
       Any opinion is worth speaking, wether people agree with it or not. This is a fundamental right and is necessary
       for a healthy environment. Censorship is an extremely dangerous practice and should be fought as much as
       possible.
-
-      <blockquote>
-        <p>
-          Everyone has the right to freedom of opinion and expression; this right includes freedom to hold opinions
-          without interference and to seek, receive and impart information and ideas through any media and
-          regardless of frontiers.
-        </p>
-        <footer>
-          <cite>
-            —Article 19 of the <a href='https://un.org/en/documents/udhr' rel='noreferrer' target='_blank'> Universal
-            Declaration of Human Rights</a>
-          </cite>
-        </footer>
-      </blockquote>
     </PageSection>
+    <blockquote>
+      <p>
+        Everyone has the right to freedom of opinion and expression; this right includes freedom to hold opinions
+        without interference and to seek, receive and impart information and ideas through any media and
+        regardless of frontiers.
+      </p>
+      <footer>
+        <cite>
+          —Article 19 of the <a href='https://un.org/en/documents/udhr' rel='noreferrer' target='_blank'>Universal
+          Declaration of Human Rights</a>
+        </cite>
+      </footer>
+    </blockquote>
+
     <PageSection icon='Shield' title={value('the right of privacy')}>
       Privacy is a major concern over Internet and people are being more and more aware and concerned by the risks
       of having their activity closely monitored. We do our best to follow the principles of least privilege and we

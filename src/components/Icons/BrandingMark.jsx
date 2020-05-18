@@ -27,16 +27,13 @@
 
 import React from 'react'
 
-import * as Icons from '@components/Icons'
+import svg from '@assets/logo.svg'
 
-import style from '@styles/page_section.scss'
-
-const Section = (props) => (
-  <section className={[ style.container, props.className ].filter(Boolean).join(' ')}>
-    <h3>{props.icon && React.createElement(Icons[props.icon])} {props.title}</h3>
-    <p>{props.children}</p>
-  </section>
+const BrandingMark = (props) => (
+  <svg {...props}>
+    <use href={`${svg}#branding`}/>
+  </svg>
 )
 
-Section.displayName = 'PageSection'
-export default React.memo(Section)
+BrandingMark.displayName = 'BrandingMark'
+export default React.memo(BrandingMark)

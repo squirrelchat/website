@@ -47,7 +47,7 @@ const Header = () => {
   return (
     <header className={[ style.container, opened && style.opened ].filter(Boolean).join(' ')}>
       <div className={style.contents}>
-        <Link to='/' className={style.logo} aria-label="Squirrel Chat">
+        <Link to='/' className={style.logo} aria-label='Squirrel Chat'>
           <Logo/>
         </Link>
         <nav>

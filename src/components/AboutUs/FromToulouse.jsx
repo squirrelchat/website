@@ -34,7 +34,7 @@ const FromToulouse = () => (
     <div className={style.container}>
       <h2>Proudly built in the best French city</h2>
       <p>Being US-based is so 2015. Squirrel is built by a small team of students and tech enthusiasts from
-        the <span class={style.pink}>Pink City</span>, more commonly known as Toulouse.</p>
+        the <span className={style.pink}>Pink City</span>, more commonly known as Toulouse.</p>
     </div>
   </section>
 )

@@ -29,22 +29,21 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 
-const App = React.lazy(() => import('./components/App' /* webpackChunkName: "app", webpackPreload: true */))
+import('./components/App' /* webpackChunkName: "app" */).then(mdl => {
+  const App = mdl.default
+  if (process.env.NODE_ENV === 'production') {
+    const rendered = (
+      <Router>
+        <App/>
+      </Router>
+    )
 
-if (process.env.NODE_ENV === 'production') {
-  ReactDOM.hydrate(
-    <Router>
-      <React.Suspense fallback={null}>
+    ReactDOM.hydrate(rendered, document.querySelector('#react-root'))
+  } else {
+    ReactDOM.render(
+      <Router>
         <App/>
-      </React.Suspense>
-    </Router>, document.querySelector('#react-root')
-  )
-} else {
-  ReactDOM.render(
-    <Router>
-      <React.Suspense fallback={null}>
-        <App/>
-      </React.Suspense>
-    </Router>, document.querySelector('#react-root')
-  )
-}
+      </Router>, document.querySelector('#react-root')
+    )
+  }
+})

@@ -27,16 +27,22 @@
 
 import React from 'react'
 
-import * as Icons from '@components/Icons'
+import style from '@styles/branding.scss'
 
-import style from '@styles/page_section.scss'
-
-const Section = (props) => (
-  <section className={[ style.container, props.className ].filter(Boolean).join(' ')}>
-    <h3>{props.icon && React.createElement(Icons[props.icon])} {props.title}</h3>
-    <p>{props.children}</p>
+const Colors = () => (
+  <section>
+    <h2>Our Colors</h2>
+    <div className={style.color} style={{ '--color': '#ff7b1c' }}>
+      <div className={style.name}>Primary Orange</div>
+      <div className={style.codes}>
+        <span>HEX #FF7B1C</span>
+        <span>RGB 255, 123, 28</span>
+        <span>HSL 25, 100%, 55%</span>
+        <span>CMYK 0%, 52%, 89%, 0%</span>
+      </div>
+    </div>
   </section>
 )
 
-Section.displayName = 'PageSection'
-export default React.memo(Section)
+Colors.displayName = 'BrandingColors'
+export default React.memo(Colors)

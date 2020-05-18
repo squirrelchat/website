@@ -64,11 +64,8 @@ require('http')
     const context = {}
     // noinspection JSFileReferences
     const App = require('./dist/App').default
-    const html = ReactDOMServer.renderToString(
-      React.createElement(StaticRouter, {
-        location: req.url,
-        context
-      }, React.createElement(App, { server: true }))
+    const rendered = React.createElement(
+      StaticRouter, { location: req.url, context }, React.createElement(App, { server: true })
     )
 
     if (context.url) {
@@ -77,6 +74,7 @@ require('http')
       res.end()
     } else {
       // Send
+      const html = ReactDOMServer.renderToString(rendered)
       res.setHeader('content-type', 'text/html')
       res.end(renderHtml(req, Helmet.renderStatic(), html))
     }
@@ -96,9 +94,10 @@ const renderHtml = (req, helmet, html) => `
     <body ${helmet ? helmet.bodyAttributes.toString() : ''}>
       <div id='react-root'>
         ${html || ''}
-        </div>
-      <div id='tooltip-container'></div>
-      <script>window.GLOBAL_ENV = { PRODUCTION: ${process.argv.includes('-p')} }</script>
+      </div>
+      <script>
+        window.GLOBAL_ENV = { PRODUCTION: ${!process.argv.includes('-d')} }
+      </script>
       <script src='${manifest['main.js']}'></script>
       ${manifest['styles.js'] ? `<script src='${manifest['styles.js']}'></script>` : ''}
     </body>

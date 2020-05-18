@@ -27,6 +27,7 @@
 
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { useLocation } from 'react-router'
 
 import Header from './Header'
 import Footer from './Footer'
@@ -37,44 +38,51 @@ import '@styles/main.scss'
 
 const Router = process.env.BUILD_SIDE === 'server' ? RouterSSR : RouterCSR
 
-const App = () => (
-  <>
-    <Helmet
-      titleTemplate='%s - Squirrel Chat'
-      defaultTitle='Squirrel Chat'
-    >
-      <meta charSet='utf8'/>
-      <meta httpEquiv='Content-Type' content='text/html; charset=UTF-8'/>
-      <meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover'/>
+const App = () => {
+  const { pathname } = useLocation()
+  if (process.env.BUILD_SIDE !== 'server') {
+    React.useEffect(() => window.scrollTo(0, 0), [ pathname ])
+  }
 
-      <meta name='theme-color' content='#ff7b1c'/>
-      <meta name='revisit-after' content='2 days'/>
-      <link rel='canonical' href='https://squirrel.chat/'/>
-      <meta name='description' content='Next-gen, open-source and enterprise-ready chat platform'/>
+  return (
+    <>
+      <Helmet
+        titleTemplate='%s • Squirrel Chat'
+        defaultTitle='Squirrel Chat'
+      >
+        <meta charSet='utf8'/>
+        <meta httpEquiv='Content-Type' content='text/html; charset=UTF-8'/>
+        <meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover'/>
 
-      <meta property='og:locale' content='en_US'/>
-      <meta property='og:title' content='Squirrel Chat'/>
-      <meta property='og:site_name' content='Squirrel Chat'/>
-      <meta property='og:url' content='https://squirrel.chat/'/>
-      <meta property='og:image' content={require('@assets/squirrel.png').default}/>
-      <meta property='og:description' content='Next-gen, open-source and enterprise-ready chat platform'/>
+        <meta name='theme-color' content='#ff7b1c'/>
+        <meta name='revisit-after' content='2 days'/>
+        <link rel='canonical' href={`https://squirrel.chat${pathname}`}/>
+        <meta name='description' content='Next-gen, open-source and enterprise-ready chat platform'/>
 
-      <meta name='twitter:card' content='summary'/>
-      <meta name='twitter:site' content='@Bowser65'/>
+        <meta property='og:locale' content='en_US'/>
+        <meta property='og:title' content='Squirrel Chat'/>
+        <meta property='og:site_name' content='Squirrel Chat'/>
+        <meta property='og:url' content={`https://squirrel.chat${pathname}`}/>
+        <meta property='og:image' content={require('@assets/squirrel.png').default}/>
+        <meta property='og:description' content='Next-gen, open-source and enterprise-ready chat platform'/>
 
-      <link rel='dns-prefetch' href='https://fonts.googleapis.com'/>
-      <link href='https://fonts.gstatic.com' rel='preconnect' crossorigin/>
+        <meta name='twitter:card' content='summary'/>
+        <meta name='twitter:site' content='@Bowser65'/>
 
-      <link rel='shortcut icon' href={require('@assets/squirrel.ico').default}/>
-      <link href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap' rel='stylesheet'/>
-    </Helmet>
-    <Header/>
-    <main>
-      <Router/>
-    </main>
-    <Footer/>
-  </>
-)
+        <link rel='dns-prefetch' href='https://fonts.googleapis.com'/>
+        <link href='https://fonts.gstatic.com' rel='preconnect' crossorigin/>
+
+        <link rel='shortcut icon' href={require('@assets/squirrel.ico').default}/>
+        <link href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap' rel='stylesheet'/>
+      </Helmet>
+      <Header/>
+      <main>
+        <Router/>
+      </main>
+      <Footer/>
+    </>
+  )
+}
 
 App.displayName = 'App'
 export default React.memo(App)

@@ -86,7 +86,8 @@
 
   blockquote {
     position: relative;
-    margin: 1em 0;
+    margin: -23px 0 46px;
+    margin-bottom: 46px;
     padding-left: 20px;
 
     &:before {
@@ -98,6 +99,10 @@
       width: 6px;
       border-radius: 3px;
       background-color: $dark-primary;
+    }
+
+    p {
+      margin: 0;
     }
 
     footer {

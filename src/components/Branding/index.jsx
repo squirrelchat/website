@@ -26,17 +26,42 @@
  */
 
 import React from 'react'
+import { Helmet } from 'react-helmet'
 
-import * as Icons from '@components/Icons'
+import BasicContainer from '@components/BasicContainer'
+import Intro from './Intro'
+import Logo from './Logo'
+import Colors from './Colors'
 
-import style from '@styles/page_section.scss'
-
-const Section = (props) => (
-  <section className={[ style.container, props.className ].filter(Boolean).join(' ')}>
-    <h3>{props.icon && React.createElement(Icons[props.icon])} {props.title}</h3>
-    <p>{props.children}</p>
-  </section>
+const Branding = () => (
+  <BasicContainer>
+    <Helmet>
+      <title>Branding</title>
+      <meta property='og:title' content='Branding'/>
+      <meta name='description' content={'Squirrel\'s branding assets and guidelines'}/>
+      <meta property='og:description' content={'Squirrel\'s branding assets and guidelines'}/>
+    </Helmet>
+    <Intro/>
+    <Logo/>
+    <Colors/>
+    <section>
+      <h2>Guidelines</h2>
+      <ul>
+        <li>Keep the logos in their original shape and proportions</li>
+        <li>Use the appropriate color to ensure the logos are visible</li>
+        <li>Please do not recolor the logos and use one of the three variants available</li>
+        <li>You are not allowed to use our art or name to imply any form of endorsement from the Squirrel team</li>
+        <li>You are not allowed to use our art for your own logo or icons</li>
+        <li>You are not allowed to sell our art</li>
+      </ul>
+      <p>
+        If you're unsure if your use is compliant, or you simply want to share the art you've made for us you
+        can <a target='_blank' href='mailto:hi@squirrel.chat'>reach out by email</a>! We can't wait to see what
+        you'll create.
+      </p>
+    </section>
+  </BasicContainer>
 )
 
-Section.displayName = 'PageSection'
-export default React.memo(Section)
+Branding.displayName = 'Branding'
+export default React.memo(Branding)

@@ -29,6 +29,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
 import Home from './Home'
+import Branding from './Branding'
 import AboutUs from './AboutUs'
 import BlogRouter from './Blog/Router'
 import ComingSoon from './ComingSoon'
@@ -51,7 +52,7 @@ const Router = () => (
       <ComingSoon/>
     </Route>
     <Route path='/branding' exact>
-      <ComingSoon/>
+      <Branding/>
     </Route>
     <Route path='/about-us' exact>
       <AboutUs/>
