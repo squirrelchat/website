@@ -82,7 +82,6 @@ const App = () => {
         <link href='https://fonts.gstatic.com' rel='preconnect' crossorigin/>
 
         <link rel='shortcut icon' href={require('@assets/squirrel.ico').default}/>
-        <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap' rel='stylesheet'/>
         <link href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap' rel='stylesheet'/>
       </Helmet>
       <Header/>
