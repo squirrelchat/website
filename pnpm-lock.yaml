@@ -33,6 +33,7 @@ devDependencies:
   nodemon: 2.0.3
   optimize-css-assets-webpack-plugin: 5.0.3_webpack@4.43.0
   postcss-loader: 3.0.0
+  raw-loader: 4.0.1_webpack@4.43.0
   react-refresh: 0.8.2
   sass-loader: 8.0.2_node-sass@4.14.1+webpack@4.43.0
   terser-webpack-plugin: 3.0.1_webpack@4.43.0
@@ -7511,6 +7512,18 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-4Oz8DUIwdvoa5qMJelxipzi/iJIi40O5cGV1wNYp5hvZP8ZN0T+jiNkL0QepXs+EsQ9XJ8ipEDoiH70ySUJP3Q==
+  /raw-loader/4.0.1_webpack@4.43.0:
+    dependencies:
+      loader-utils: 2.0.0
+      schema-utils: 2.6.6
+      webpack: 4.43.0_webpack@4.43.0
+    dev: true
+    engines:
+      node: '>= 10.13.0'
+    peerDependencies:
+      webpack: ^4.0.0 || ^5.0.0
+    resolution:
+      integrity: sha512-baolhQBSi3iNh1cglJjA0mYzga+wePk7vdEX//1dTFd+v4TsQlQE0jitJSNF1OIP82rdYulH7otaVmdlDaJ64A==
   /rc/1.2.8:
     dependencies:
       deep-extend: 0.6.0
@@ -9765,6 +9778,7 @@ packages:
       react: ^0.14.0 || ^15.0.0 || ^16.0.0
       react-dom: ^0.14.0 || ^15.0.0 || ^16.0.0
     resolution:
+      registry: 'https://registry.npmjs.org/'
       tarball: 'https://codeload.github.com/discord/react-async-component/tar.gz/0ca498b4a07ce99ad4dfbb44ed16be9333d2f090'
     version: 2.0.1
 specifiers:
@@ -9794,6 +9808,7 @@ specifiers:
   nodemon: ^2.0.3
   optimize-css-assets-webpack-plugin: ^5.0.3
   postcss-loader: ^3.0.0
+  raw-loader: ^4.0.1
   react: ^16.13.1
   react-async-bootstrapper: ^2.1.1
   react-async-component: discord/react-async-component

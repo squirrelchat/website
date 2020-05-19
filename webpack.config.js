@@ -113,6 +113,10 @@ const baseConfig = {
         ]
       },
       {
+        test: /\.txt$/,
+        use: 'raw-loader'
+      },
+      {
         test: /\.(png|jpe?g|gif)$/,
         use: [
           {

@@ -30,11 +30,14 @@ import React from 'react'
 import style from '@styles/about_us.scss'
 
 const FromToulouse = () => (
-  <section className={style.colored}>
+  <section className={style.colored} id='from-toulouse'>
     <div className={style.container}>
       <h2>Proudly built in the best French city</h2>
-      <p>Being US-based is so 2015. Squirrel is built by a small team of students and tech enthusiasts from
-        the <span className={style.pink}>Pink City</span>, more commonly known as Toulouse.</p>
+      <p>
+        Being US-based is so 2015. Squirrel is built by a small team of students and tech enthusiasts from
+        the <span className={style.pink}>Pink City</span>, more commonly known as Toulouse.
+      </p>
+      <p className={style.emojis}>🌞 🥖 🧀 🍷</p>
     </div>
   </section>
 )

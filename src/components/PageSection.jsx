@@ -32,7 +32,7 @@ import * as Icons from '@components/Icons'
 import style from '@styles/page_section.scss'
 
 const Section = (props) => (
-  <section className={[ style.container, props.className ].filter(Boolean).join(' ')}>
+  <section className={[ style.container, props.className ].filter(Boolean).join(' ')} id={props.id}>
     <h3>{props.icon && React.createElement(Icons[props.icon])} {props.title}</h3>
     <p>{props.children}</p>
   </section>

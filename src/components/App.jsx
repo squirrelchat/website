@@ -39,9 +39,18 @@ import '@styles/main.scss'
 const Router = process.env.BUILD_SIDE === 'server' ? RouterSSR : RouterCSR
 
 const App = () => {
-  const { pathname } = useLocation()
+  const { hash, pathname } = useLocation()
+  console.log(useLocation())
   if (process.env.BUILD_SIDE !== 'server') {
-    React.useEffect(() => window.scrollTo(0, 0), [ pathname ])
+    React.useEffect(() => {
+      if (hash) {
+        const element = document.querySelector(hash)
+        if (element) {
+          return element.scrollIntoView()
+        }
+      }
+      window.scrollTo(0, 0)
+    }, [ pathname ])
   }
 
   return (
@@ -73,6 +82,7 @@ const App = () => {
         <link href='https://fonts.gstatic.com' rel='preconnect' crossorigin/>
 
         <link rel='shortcut icon' href={require('@assets/squirrel.ico').default}/>
+        <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap' rel='stylesheet'/>
         <link href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap' rel='stylesheet'/>
       </Helmet>
       <Header/>

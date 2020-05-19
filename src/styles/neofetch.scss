@@ -1,4 +1,4 @@
-/*
+/*!
  * Copyright (c) 2020 Squirrel Chat, All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,53 +25,32 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+@import './utils/vars';
 
-import ComingSoon from './ComingSoon'
+.container {
+  font-weight: 600;
+  display: flex;
+  user-select: none;
+  font-size: 14px;
+  line-height: 18px;
 
-const Home = React.lazy(() => import('./Home'))
-const Security = React.lazy(() => import('./Security'))
-const Branding = React.lazy(() => import('./Branding'))
-const AboutUs = React.lazy(() => import('./AboutUs'))
-const BlogRouter = React.lazy(() => import('./Blog/Router'))
+  .logo {
+    white-space: pre;
+    margin-right: 64px;
+    color: $primary;
+  }
 
-const Router = () => (
-  <React.Suspense fallback={null}>
-    <Switch>
-      <Route path='/' exact>
-        <Home/>
-      </Route>
-      <Route path='/features' exact>
-        <ComingSoon/>
-      </Route>
-      <Route path='/for-enterprises' exact>
-        <ComingSoon/>
-      </Route>
-      <Route path='/download' exact>
-        <ComingSoon/>
-      </Route>
-      <Route path='/security' exact>
-        <Security/>
-      </Route>
-      <Route path='/branding' exact>
-        <Branding/>
-      </Route>
-      <Route path='/about-us' exact>
-        <AboutUs/>
-      </Route>
-      <Route path='/blog'>
-        <BlogRouter/>
-      </Route>
-      <Route path='/login'>
-        <ComingSoon/>
-      </Route>
-      <Route>
-        404
-      </Route>
-    </Switch>
-  </React.Suspense>
-)
+  .properties {
+    display: flex;
+    flex-direction: column;
 
-Router.displayName = 'SquirrelRouter'
-export default React.memo(Router)
+    b {
+      font-weight: 600;
+      color: $primary;
+    }
+
+    a {
+      color: inherit;
+    }
+  }
+}

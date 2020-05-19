@@ -40,7 +40,7 @@ const Intro = () => (
         it's beautiful enough you might even earn a virtual cookie!
       </p>
       <p>
-        The Squirrel logo has been designed by <a rel='noreferrer' target='_blank' href='https://eliasrokhaug.myportfolio.com'>Elias Rokhaug</a>,
+        The Squirrel logo has been designed by <a rel='noreferrer' target='_blank' href='https://ellieportfolio.webflow.io'>Elias Rokhaug</a>,
         and the font used in our wordmark is "Grand Hotel", licensed under the <a rel='noreferrer' target='_blank' href='https://fontsquirrel.com/license/grand-hotel'>SIL Open Font License 1.1</a>.
       </p>
     </section>

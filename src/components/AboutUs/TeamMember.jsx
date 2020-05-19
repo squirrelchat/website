@@ -28,6 +28,7 @@
 import React from 'react'
 
 import * as Icons from '@components/Icons'
+
 import style from '@styles/about_us.scss'
 
 const TeamMember = ({ name, avatar, links, children }) => (

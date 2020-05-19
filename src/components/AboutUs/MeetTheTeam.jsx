@@ -32,7 +32,7 @@ import TeamMember from './TeamMember'
 import style from '@styles/about_us.scss'
 
 const MeetTheTeam = () => (
-  <section className={style.container}>
+  <section className={style.container} id='meet-the-team'>
     <h2>Meet the team</h2>
     <TeamMember
       avatar={require('@assets/team/bowoser.png').default}

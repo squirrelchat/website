@@ -36,9 +36,9 @@ import style from '@styles/about_us.scss'
 const value = text => <span>We value <em>{text}</em></span>
 
 const Values = () => (
-  <section className={style.container}>
+  <section className={style.container} id='our-values'>
     <h2>Squirrel is built on top of 4 values</h2>
-    <PageSection icon='MessageCircle' title={value('freedom of speech')} noWrap>
+    <PageSection icon='MessageCircle' title={value('freedom of speech')} id='freedom-of-speech'>
       Any opinion is worth speaking, wether people agree with it or not. This is a fundamental right and is necessary
       for a healthy environment. Censorship is an extremely dangerous practice and should be fought as much as
       possible.
@@ -57,18 +57,18 @@ const Values = () => (
       </footer>
     </blockquote>
 
-    <PageSection icon='Shield' title={value('the right of privacy')}>
+    <PageSection icon='Shield' title={value('the right of privacy')} id='privacy'>
       Privacy is a major concern over Internet and people are being more and more aware and concerned by the risks
       of having their activity closely monitored. We do our best to follow the principles of least privilege and we
       make sure to secure your private data from wild eyes, for example through <Link to='/features#encryption'>End to
       End Encryption</Link>.
     </PageSection>
-    <PageSection icon='Award' title={value('transparency and honesty')}>
+    <PageSection icon='Award' title={value('transparency and honesty')} id='transparency'>
       Having people's trust is a privilege, and it should be treated as such. If we do oopsies and for example a
       security issue is found within Squirrel, it's your right to be informed about what happened. It's completely
       unnecessary to lie and hide things, and would just end up blowing back and cause deception.
     </PageSection>
-    <PageSection icon='Smile' title={value('community participation')}>
+    <PageSection icon='Smile' title={value('community participation')} id='community'>
       A platform is nothing without its community and the community is one of the strongest forces when it comes to
       finding ideas, bugs, or even helping out with tasks we're unable to do.
     </PageSection>
