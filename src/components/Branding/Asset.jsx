@@ -34,7 +34,7 @@ const Asset = ({ svg, png, name }) => (
     <img src={svg} alt=''/>
     <div className={style.links}>
       <a href={svg} download={name} target='_blank'>.svg</a>
-      <a href={svg} download={name} target='_blank'>.png</a>
+      <a href={png} download={name} target='_blank'>.png</a>
     </div>
   </div>
 )

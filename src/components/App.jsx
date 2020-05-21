@@ -40,13 +40,15 @@ const Router = process.env.BUILD_SIDE === 'server' ? RouterSSR : RouterCSR
 
 const App = () => {
   const { hash, pathname } = useLocation()
-  console.log(useLocation())
   if (process.env.BUILD_SIDE !== 'server') {
     React.useEffect(() => {
       if (hash) {
         const element = document.querySelector(hash)
         if (element) {
-          return element.scrollIntoView()
+          setTimeout(() => { // Prevent weird behaviors
+            element.scrollIntoView()
+          }, 10)
+          return void 0
         }
       }
       window.scrollTo(0, 0)
