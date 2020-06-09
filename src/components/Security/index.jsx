@@ -26,7 +26,7 @@
  */
 
 import React from 'react'
-import { Helmet } from 'react-helmet'
+import Helmet from 'react-helmet'
 
 import BasicContainer from '@components/BasicContainer'
 // import Researcher from '@components/AboutUs/TeamMember'

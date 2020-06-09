@@ -28,13 +28,14 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
-import { Logo } from './Icons'
+import { Logo, PrideLogo } from './Icons'
 
 import style from '@styles/header.scss'
 
 const Header = () => {
   // Hooks
   const [ opened, setOpened ] = React.useState(false)
+  const isPride = React.useMemo(() => new Date().getUTCMonth() === 5, [])
   const toggle = React.useCallback(() => setOpened(!opened), [ opened ])
   React.useEffect(() => {
     if (opened) {
@@ -48,7 +49,7 @@ const Header = () => {
     <header className={[ style.container, opened && style.opened ].filter(Boolean).join(' ')}>
       <div className={style.contents}>
         <Link to='/' className={style.logo} aria-label='Squirrel Chat'>
-          <Logo/>
+          {isPride ? <PrideLogo/> : <Logo/>}
         </Link>
         <nav>
           <NavLink activeClassName={style.current} to='/features'>Features</NavLink>

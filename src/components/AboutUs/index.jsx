@@ -26,7 +26,7 @@
  */
 
 import React from 'react'
-import { Helmet } from 'react-helmet'
+import Helmet from 'react-helmet'
 
 import Values from './Values'
 import FromToulouse from './FromToulouse'

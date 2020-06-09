@@ -28,6 +28,14 @@
 import React from 'react'
 
 import svg from '@assets/logo.svg'
+import prideSvg from '@assets/squirrel-pride.svg'
+
+const Pride = (props) => (
+  <svg viewBox='0 0 386.90 100' {...props}>
+    <image x='0' y='0' width='97.46' height='100' href={`${prideSvg}`}/>
+    <use x='130.46' y='23' width='256.44' height='70' href={`${svg}#wordmark`}/>
+  </svg>
+)
 
 const Logo = (props) => (
   <svg {...props}>
@@ -36,4 +44,7 @@ const Logo = (props) => (
 )
 
 Logo.displayName = 'Logo'
+Pride.displayName = 'PrideLogo'
+
 export default React.memo(Logo)
+export const PrideLogo = React.memo(Pride)

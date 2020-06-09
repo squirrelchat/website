@@ -26,7 +26,7 @@
  */
 
 import React from 'react'
-import { Helmet } from 'react-helmet'
+import Helmet from 'react-helmet'
 import { Link } from 'react-router-dom'
 
 import { WordMark } from './Icons'
@@ -55,6 +55,7 @@ const Footer = () => {
           <div>
             <WordMark className={style.title}/>
           </div>
+          <div className={`${style.item} ${style.blm}`}>#BlackLivesMatter</div>
           <div className={style.item}>&copy; {new Date().getFullYear()} Squirrel Chat</div>
           <div className={style.item}>
             <a href='https://github.com/squirrelchat/website/blob/master/LICENSE' rel='noreferrer' target='_blank'>License</a> -

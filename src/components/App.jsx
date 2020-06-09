@@ -26,7 +26,7 @@
  */
 
 import React from 'react'
-import { Helmet } from 'react-helmet'
+import Helmet from 'react-helmet'
 import { useLocation } from 'react-router'
 
 import Header from './Header'
