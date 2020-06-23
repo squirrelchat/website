@@ -108,7 +108,7 @@ const Footer = () => {
             <Link to='/about-us'>About Us</Link>
           </div>
           <div className={style.item}>
-            <a rel='noreferrer' target='_blank' href='https://discord.gg/zhxhCzN'>Discord</a>
+            <a rel='noreferrer' target='_blank' href='https://discord.gg/qAPpZDr'>Discord</a>
           </div>
           <div className={style.item}>
             <a target='_blank' href='mailto:hi@squirrel.chat'>Email</a>

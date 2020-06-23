@@ -45,9 +45,7 @@ const App = () => {
       if (hash) {
         const element = document.querySelector(hash)
         if (element) {
-          setTimeout(() => { // Prevent weird behaviors
-            element.scrollIntoView()
-          }, 10)
+          setTimeout(() => element.scrollIntoView(), 10)
           return void 0
         }
       }

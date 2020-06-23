@@ -56,7 +56,7 @@ const Header = () => {
           <NavLink activeClassName={style.current} to='/download'>Download</NavLink>
           <NavLink activeClassName={style.current} to='/blog'>Blog</NavLink>
           <a rel='noreferrer' href='https://github.com/squirrelchat' target='_blank'>GitHub</a>
-          <a rel='noreferrer' href='https://discord.gg/zhxhCzN' target='_blank'>Discord</a>
+          <a rel='noreferrer' href='https://discord.gg/qAPpZDr' target='_blank'>Discord</a>
           <a className={style.button} href='/login'>Try Squirrel</a>
         </nav>
         <div className={style.hamburger} onClick={toggle}>
