@@ -58,7 +58,7 @@ const Footer = () => {
           <div className={`${style.item} ${style.blm}`}>#BlackLivesMatter</div>
           <div className={style.item}>&copy; {new Date().getFullYear()} Squirrel Chat</div>
           <div className={style.item}>
-            <a href='https://github.com/squirrelchat/website/blob/master/LICENSE' rel='noreferrer' target='_blank'>License</a> -
+            <a href='https://github.com/squirrelchat/website/blob/mistress/LICENSE' rel='noreferrer' target='_blank'>License</a> -
             BSD-3-Clause
           </div>
           <div className={[ style.item, style.comment ].join(' ')}>{comment[random]}</div>
