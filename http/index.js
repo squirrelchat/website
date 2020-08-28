@@ -42,19 +42,22 @@ const { StaticRouter } = require('react-router')
 // noinspection JSFileReferences
 const manifest = require('./dist/manifest.json')
 
+const textFiles = [
+  [ /^\/robots\.txt(?:[#?].*)?$/, join(__dirname, 'files/robots.txt') ],
+  [ /^\/pgp-key\.txt(?:[#?].*)?$/, join(__dirname, 'files/pgp-key.txt') ],
+  [ /^\/\.well-known\/security\.txt(?:[#?].*)?$/, join(__dirname, 'files/security.txt') ]
+]
+
 require('http')
   .createServer((req, res) => {
     // uwu
     res.setHeader('x-powered-by', 'an army of squirrels')
 
-    // Assets
-    if (req.url.startsWith('/dist/')) {
-      const target = req.url.split('/')[2]
-      const file = join(__dirname, '..', 'dist', target)
-      if (existsSync(file) && target && target !== '.' && target !== '..') {
-        res.setHeader('content-type', mime.lookup(file) || 'application/octet-stream')
-        return createReadStream(file).pipe(res)
-      }
+    // Text files
+    const file = textFiles.find(f => f[0].test(req.url))
+    if (file) {
+      res.setHeader('content-type', 'text/plain')
+      return createReadStream(file[1]).pipe(res)
     }
 
     // Just return empty html while developing
