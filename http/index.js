@@ -26,9 +26,8 @@
  */
 
 // Node
-const { existsSync, createReadStream } = require('fs')
+const { createReadStream } = require('fs')
 const { join } = require('path')
-const mime = require('mime-types')
 
 // React
 const React = require('react')
