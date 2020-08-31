@@ -34,6 +34,7 @@ const Home = React.lazy(() => import('./Home'))
 const Security = React.lazy(() => import('./Security'))
 const Branding = React.lazy(() => import('./Branding'))
 const AboutUs = React.lazy(() => import('./AboutUs'))
+const Legal = React.lazy(() => import('./Legal'))
 const BlogRouter = React.lazy(() => import('./Blog/Router'))
 
 const Router = () => (
@@ -59,6 +60,9 @@ const Router = () => (
       </Route>
       <Route path='/about-us' exact>
         <AboutUs/>
+      </Route>
+      <Route path='/legal' exact>
+        <Legal/>
       </Route>
       <Route path='/blog'>
         <BlogRouter/>

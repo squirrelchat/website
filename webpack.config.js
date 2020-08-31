@@ -92,8 +92,10 @@ const baseConfig = {
           {
             loader: 'css-loader',
             options: {
-              localsConvention: 'camelCaseOnly',
-              modules: { localIdentName: '[local]-[hash:7]' }
+              modules: {
+                exportLocalsConvention: 'camelCaseOnly',
+                localIdentName: '[local]-[hash:7]'
+              }
             }
           },
           {

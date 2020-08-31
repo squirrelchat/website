@@ -55,7 +55,6 @@ const Footer = () => {
           <div>
             <WordMark className={style.title}/>
           </div>
-          <div className={`${style.item} ${style.blm}`}>#BlackLivesMatter</div>
           <div className={style.item}>&copy; {new Date().getFullYear()} Squirrel Chat</div>
           <div className={style.item}>
             <a href='https://github.com/squirrelchat/website/blob/mistress/LICENSE' rel='noreferrer' target='_blank'>License</a> -
@@ -112,6 +111,9 @@ const Footer = () => {
           </div>
           <div className={style.item}>
             <a target='_blank' href='mailto:hi@squirrel.chat'>Email</a>
+          </div>
+          <div className={style.item}>
+            <Link to='/legal'>Legal Notice</Link>
           </div>
         </section>
       </div>

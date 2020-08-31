@@ -26,50 +26,26 @@
  */
 
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
 
-import Home from './Home'
-import Security from './Security'
-import Branding from './Branding'
-import AboutUs from './AboutUs'
-import Legal from './Legal'
-import BlogRouter from './Blog/Router'
-import ComingSoon from './ComingSoon'
+import BasicContainer from './BasicContainer'
 
-const Router = () => (
-  <Switch>
-    <Route path='/' exact>
-      <Home/>
-    </Route>
-    <Route path='/features' exact>
-      <ComingSoon/>
-    </Route>
-    <Route path='/for-enterprises' exact>
-      <ComingSoon/>
-    </Route>
-    <Route path='/download' exact>
-      <ComingSoon/>
-    </Route>
-    <Route path='/security' exact>
-      <Security/>
-    </Route>
-    <Route path='/branding' exact>
-      <Branding/>
-    </Route>
-    <Route path='/about-us' exact>
-      <AboutUs/>
-    </Route>
-    <Route path='/legal' exact>
-      <Legal/>
-    </Route>
-    <Route path='/blog'>
-      <BlogRouter/>
-    </Route>
-    <Route>
-      404
-    </Route>
-  </Switch>
+const Legal = () => (
+  <BasicContainer>
+    <h1>Legal Notice</h1>
+    <p>
+      Complying with the article 6 of French law No. 2004-575 of June 21, 2004 for Confidence in the Digital
+      Economy (Loi n°2004-575 du 21 juin 2004 pour la Confiance dans l'Économie Numérique), the hosting provider
+      for the website squirrel.chat is:
+    </p>
+    <p>
+      DigitalOcean LLC<br/>
+      101 Avenue of the Americas, 10th Floor<br/>
+      New York, NY 10013<br/>
+      United States of America<br/>
+      Phone: +1 212-226-2794
+    </p>
+  </BasicContainer>
 )
 
-Router.displayName = 'SquirrelRouterSSR'
-export default React.memo(Router)
+Legal.displayName = 'Legal'
+export default React.memo(Legal)

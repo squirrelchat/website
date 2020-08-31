@@ -87,6 +87,10 @@
 .container {
   @extend %container;
 
+  > h1:first-child {
+    margin-top: 0;
+  }
+
   h2 {
     margin-top: 42px;
     margin-bottom: 16px;

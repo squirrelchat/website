@@ -1,5 +1,5 @@
 {
-  "name": "sqirrel-website",
+  "name": "@squirrelchat/website",
   "version": "1.0.0",
   "description": "Squirrel's official website.",
   "main": "index.js",
@@ -13,7 +13,6 @@
     "start": "node http/index.js -p"
   },
   "dependencies": {
-    "mime-types": "^2.1.27",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
