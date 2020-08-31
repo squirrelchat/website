@@ -88,6 +88,9 @@ const Footer = () => {
           <div className={style.item}>
             <Link to='/branding'>Branding</Link>
           </div>
+          <div className={style.item}>
+            <a href='/developers'>Developers</a>
+          </div>
         </section>
         <section className={style.section}>
           <div className={style.title}>Open Source</div>
