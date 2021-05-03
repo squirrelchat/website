@@ -1,0 +1,116 @@
+/*
+ * Copyright (c) 2020-2021 Squirrel Chat, All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 3. Neither the name of the copyright holder nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software without
+ *    specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+.root {
+  margin: 0;
+  padding: 0;
+  max-width: none;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1360px;
+  padding: 1em 2em;
+  width: 100%;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-secondary);
+  margin: 16px 0;
+}
+
+.hero::before, .hero::after {
+  content: '';
+  width: 100%;
+  height: 16px;
+  display: block;
+  border: 0 var(--background-light) solid;
+  background-color: var(--background-primary);
+  filter: brightness(.83);
+}
+
+.hero::before {
+  border-top-width: 16px;
+}
+
+.hero::after {
+  border-bottom-width: 16px;
+}
+
+.hero .container {
+  max-width: 900px;
+  text-align: center;
+  margin: 16px auto;
+  font-size: 1.1em;
+}
+
+.hero p {
+  margin-top: 16px;
+}
+
+.team-member {
+  display: flex;
+  margin-top: 32px;
+}
+
+.team-member-avatar {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.team-member-name {
+  font-weight: 600;
+  font-size: 1.4em;
+}
+
+.team-member-links {
+  display: flex;
+  margin-top: 8px;
+}
+
+.team-member-links a {
+  color: inherit;
+}
+
+.team-member-links a:hover {
+  text-decoration: none;
+}
+
+.team-member-links svg {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  fill: currentColor;
+}
+
+.team-member-bio {
+  margin-top: 4px;
+}

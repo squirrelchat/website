@@ -1,0 +1,11 @@
+# Editors
+.vscode
+.idea
+*.iml
+
+# Project
+node_modules
+*.log
+dist
+*.nogit/
+*.nogit.*
