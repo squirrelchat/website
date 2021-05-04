@@ -28,6 +28,8 @@
 import type { Plugin, ESBuildOptions } from 'vite'
 
 import { defineConfig } from 'vite'
+import { rename } from 'fs/promises'
+import { join } from 'path'
 import preact from '@preact/preset-vite'
 import magicalSvg from 'vite-plugin-magical-svg'
 import brandPlugin from './build/brand.js'
@@ -40,13 +42,27 @@ function noJsxInject (): Plugin {
   }
 }
 
+function moveIndex (): Plugin {
+  return {
+    name: 'move-index',
+    async closeBundle () {
+      if (process.argv.includes('--ssr')) {
+        await rename(join(__dirname, 'dist', 'index.html'), join(__dirname, 'server', 'index.html'))
+      }
+    }
+  }
+}
+
 export default defineConfig({
   css: { modules: { localsConvention: 'camelCase' } },
+  publicDir: process.argv.includes('--ssr') ? '_' : 'public',
+  build: { outDir: process.argv.includes('--ssr') ? 'server' : 'dist' },
   plugins: [
     preact(),
     noJsxInject(),
     brandPlugin(),
     fontLicenses(),
-    magicalSvg({ target: 'preact' })
+    magicalSvg({ target: 'preact' }),
+    moveIndex()
   ]
 })

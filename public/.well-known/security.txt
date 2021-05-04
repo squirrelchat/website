@@ -1,0 +1,6 @@
+Expires: Sat, 1 Jan 2022 00:00 +0200
+
+Contact: mailto:hi@squirrel.chat
+Policy: https://squirrel.chat/security
+Acknowledgments: https://squirrel.chat/security#acknowledgments
+Preferred-Languages: en, fr

@@ -7,5 +7,6 @@
 node_modules
 *.log
 dist
+server
 *.nogit/
 *.nogit.*

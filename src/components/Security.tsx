@@ -150,7 +150,7 @@ export default function Security (_: RoutableProps) {
         </p>
       </section>
       <section>
-        <h2 className={style.green}>Acknowledgements</h2>
+        <h2 className={style.green} id='acknowledgments'>Acknowledgements</h2>
         <p>
           Nobody has reported security vulnerabilities to the team yet.
           As soon as someone does, we'll make sure to list them here!
