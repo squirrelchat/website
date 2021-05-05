@@ -1,22 +1,23 @@
 dependencies:
+  hoofd: 1.2.2
   preact: 10.5.13
   preact-render-to-string: 5.1.19_preact@10.5.13
   preact-router: 3.2.1_preact@10.5.13
 devDependencies:
-  '@preact/preset-vite': 2.0.1_preact@10.5.13+vite@2.1.5
-  '@prefresh/vite': 2.2.1_preact@10.5.13+vite@2.1.5
+  '@preact/preset-vite': 2.1.0_preact@10.5.13+vite@2.2.4
+  '@prefresh/vite': 2.2.1_preact@10.5.13+vite@2.2.4
   '@types/adm-zip': 0.4.34
-  '@types/node': 14.14.41
+  '@types/node': 15.0.2
   '@types/sharp': 0.28.0
   '@types/xml2js': 0.4.8
   adm-zip: 0.5.5
   feather-icons: 4.28.0
   sharp: 0.28.1
-  simple-icons: 4.21.0
+  simple-icons: 4.22.0
   svgo: 2.3.0
   typescript: 4.2.4
-  vite: 2.1.5
-  vite-plugin-magical-svg: 0.2.2_vite@2.1.5
+  vite: 2.2.4
+  vite-plugin-magical-svg: 0.2.2_vite@2.2.4
   xml2js: 0.4.23
 lockfileVersion: 5.2
 packages:
@@ -197,18 +198,20 @@ packages:
     dev: true
     resolution:
       integrity: sha512-O2LVLdcnWplaGxiPBz12d0HcdN8QdxdsWYhz5LSeuukV/5mn2xUUc3gBeU4QBYPJ18g/UToe8F532XJ608prmg==
-  /@preact/preset-vite/2.0.1_preact@10.5.13+vite@2.1.5:
+  /@preact/preset-vite/2.1.0_preact@10.5.13+vite@2.2.4:
     dependencies:
-      '@prefresh/vite': 2.2.1_preact@10.5.13+vite@2.1.5
+      '@prefresh/vite': 2.2.1_preact@10.5.13+vite@2.2.4
+      babel-plugin-transform-hook-names: 1.0.2
       debug: 4.3.1
       kolorist: 1.4.0
-      vite: 2.1.5
+      vite: 2.2.4
     dev: true
     peerDependencies:
+      '@babel/core': 7.x
       preact: '*'
       vite: 2.x
     resolution:
-      integrity: sha512-PMDZ6lt4fc31NfeGwvZGEFACnn086H2q/sBkL411ufW11ZzWDk7akTxn/P4pehz/TV5KSkdMnO710JQkeyj5QQ==
+      integrity: sha512-4kJgbitw/ESjO21QwJNN8/DQ40cq4t8hsADKqAEUIXXVsvGecz0JRaMwrA+yy4S0AcUQz7rJvquEFTmsvotSGg==
   /@prefresh/babel-plugin/0.4.1:
     dev: true
     resolution:
@@ -225,7 +228,7 @@ packages:
     dev: true
     resolution:
       integrity: sha512-MUhT5m2XNN5NsZl4GnpuvlzLo6VSTa/+wBfBd3fiWUvHGhv0GF9hnA1pd//v0uJaKwUnVRQ1hYElxCV7DtYsCQ==
-  /@prefresh/vite/2.2.1_preact@10.5.13+vite@2.1.5:
+  /@prefresh/vite/2.2.1_preact@10.5.13+vite@2.2.4:
     dependencies:
       '@babel/core': 7.14.0
       '@prefresh/babel-plugin': 0.4.1
@@ -233,7 +236,7 @@ packages:
       '@prefresh/utils': 1.1.1
       '@rollup/pluginutils': 4.1.0
       preact: 10.5.13
-      vite: 2.1.5
+      vite: 2.2.4
     dev: true
     peerDependencies:
       preact: ^10.4.0
@@ -263,14 +266,14 @@ packages:
     dev: true
     resolution:
       integrity: sha512-8ToYLLAYhkRfcmmljrKi22gT2pqu7hGMDtORP1emwIEGmgUTZOsaDjzWFzW5N2frcFRz/50CWt4zA1CxJ73pmQ==
-  /@types/node/14.14.41:
-    dev: true
-    resolution:
-      integrity: sha512-dueRKfaJL4RTtSa7bWeTK1M+VH+Gns73oCgzvYfHZywRCoPSd8EkXBL0mZ9unPTveBn+D9phZBaxuzpwjWkW0g==
   /@types/node/14.14.43:
     dev: true
     resolution:
       integrity: sha512-3pwDJjp1PWacPTpH0LcfhgjvurQvrZFBrC6xxjaUEZ7ifUtT32jtjPxEMMblpqd2Mvx+k8haqQJLQxolyGN/cQ==
+  /@types/node/15.0.2:
+    dev: true
+    resolution:
+      integrity: sha512-p68+a+KoxpoB47015IeYZYRrdqMUcpbK8re/zpFB8Ld46LHC1lPEbp3EXgkEhAYEcPvjJF6ZO+869SQ0aH1dcA==
   /@types/sharp/0.28.0:
     dependencies:
       '@types/node': 14.14.43
@@ -322,6 +325,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-5hYdAkZlcG8tOLujVDTgCT+uPX0VnpAH28gWsLfzpXYm7wP6mp5Q/gYyR7YQ0cKVJcXJnl3j2kpBan13PtQf6w==
+  /babel-plugin-transform-hook-names/1.0.2:
+    dev: true
+    peerDependencies:
+      '@babel/core': ^7.12.10
+    resolution:
+      integrity: sha512-5gafyjyyBTTdX/tQQ0hRgu4AhNHG/hqWi0ZZmg2xvs2FgRkJXzDNKBZCyoYqgFkovfDrgM8OoKg8karoUvWeCw==
   /base64-js/1.5.1:
     dev: true
     resolution:
@@ -678,6 +687,12 @@ packages:
       node: '>= 0.4.0'
     resolution:
       integrity: sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==
+  /hoofd/1.2.2:
+    dev: false
+    peerDependencies:
+      react: '>= 16.8.0'
+    resolution:
+      integrity: sha512-kkJDsAWF5PQFXjCgqqkr6qNm8oFsC59piTcvciWrMBTojT+WEXAMKfa/iOTGY3oLP1Vidkp2mkJKnFFhv2HNSw==
   /ieee754/1.2.1:
     dev: true
     resolution:
@@ -1027,10 +1042,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-bCR6cP+aTdScaQCnQKbPKtJOKDp/hj9EDLJo3Nw4y1QksqaovlW/bnptB6/c1e+qmNIDHRK+oXFDdEqBT8WzUA==
-  /simple-icons/4.21.0:
+  /simple-icons/4.22.0:
     dev: true
     resolution:
-      integrity: sha512-ndWvBMRSzetkCCptehYNbbxAJOMCZ+5YJJl5EDtqfJG6W2O6y5L9YXKfPp1GoIGL4wZ/Betb+g6bGxD7JGGRgA==
+      integrity: sha512-3jLw93rkN05o85xo1kvBQeZIWyuien/eHv0Cdey7pE+nYl62xUBkyDGYFSSuuqZGSTAL++yLNUf7koWVXSL06A==
   /simple-swizzle/0.2.2:
     dependencies:
       is-arrayish: 0.3.2
@@ -1168,18 +1183,18 @@ packages:
     dev: true
     resolution:
       integrity: sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
-  /vite-plugin-magical-svg/0.2.2_vite@2.1.5:
+  /vite-plugin-magical-svg/0.2.2_vite@2.2.4:
     dependencies:
       magic-string: 0.25.7
       svgo: 2.3.0
-      vite: 2.1.5
+      vite: 2.2.4
       xml2js: 0.4.23
     dev: true
     peerDependencies:
       vite: '>= 2.0.0'
     resolution:
       integrity: sha512-IzGP3+mlwj5Qia7350ckvWDuGi9Jc5I3AMLjTpA/88NYp00reb0SoF2xy7jXssIru8zvbAZIGScDVs0tFsJb4w==
-  /vite/2.1.5:
+  /vite/2.2.4:
     dependencies:
       esbuild: 0.9.7
       postcss: 8.2.10
@@ -1192,7 +1207,7 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     resolution:
-      integrity: sha512-tYU5iaYeUgQYvK/CNNz3tiJ8vYqPWfCE9IQ7K0iuzYovWw7lzty7KRYGWwV3CQPh0NKxWjOczAqiJsCL0Xb+Og==
+      integrity: sha512-vnIwSNci+phFMp6krhy+FbYzKL0R67Sdt9mVZ96S27AewrApSJjTqncJcalk8sf60BgcbW4+1C6DFIWkxquO9g==
   /wide-align/1.1.3:
     dependencies:
       string-width: 1.0.2
@@ -1223,21 +1238,22 @@ packages:
     resolution:
       integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 specifiers:
-  '@preact/preset-vite': ^2.0.1
+  '@preact/preset-vite': ^2.1.0
   '@prefresh/vite': ^2.2.1
   '@types/adm-zip': ^0.4.34
-  '@types/node': ^14.14.41
+  '@types/node': ^15.0.2
   '@types/sharp': ^0.28.0
   '@types/xml2js': ^0.4.8
   adm-zip: ^0.5.5
   feather-icons: ^4.28.0
+  hoofd: ^1.2.2
   preact: ^10.5.13
   preact-render-to-string: ^5.1.19
   preact-router: ^3.2.1
   sharp: ^0.28.1
-  simple-icons: ^4.21.0
+  simple-icons: ^4.22.0
   svgo: ^2.3.0
   typescript: ^4.2.4
-  vite: ^2.1.5
+  vite: ^2.2.4
   vite-plugin-magical-svg: ^0.2.2
   xml2js: ^0.4.23

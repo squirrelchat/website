@@ -28,6 +28,7 @@
 import type { RoutableProps } from 'preact-router'
 import type { TeamMember as ITeamMember } from '../team'
 import { h } from 'preact'
+import { useTitle, useMeta } from 'hoofd/preact'
 
 import WebIcon from 'feather-icons/dist/icons/globe.svg'
 import GitHubIcon from 'simple-icons/icons/github.svg'
@@ -74,6 +75,11 @@ function TeamMember (member: ITeamMember) {
 }
 
 export default function AboutUs (_: RoutableProps) {
+  useTitle('About Us')
+  useMeta({ name: 'og:title', content: 'About Us' })
+  useMeta({ name: 'og:description', content: 'Learn more about who we are, what we do and what Squirrel is.' })
+  useMeta({ name: 'description', content: 'Learn more about who we are, what we do and what Squirrel is.' })
+
   return (
     <main className={style.root}>
       <div className={style.hero}>

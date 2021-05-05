@@ -32,11 +32,12 @@ import { join } from 'path'
 import { readFileSync } from 'fs'
 import { createServer } from 'http'
 import { render } from 'preact-render-to-string'
-import { h } from 'preact'
+import { toStatic } from 'hoofd/preact'
+import { h, Fragment } from 'preact'
 
 import App from './components/App'
 
-const html = readFileSync(join(__dirname, 'index.html'), 'utf8')
+const template = readFileSync(join(__dirname, 'index.html'), 'utf8')
 
 function handler (req: IncomingMessage, res: ServerResponse) {
   res.setHeader('x-powered-by', 'an army of squirrels')
@@ -46,8 +47,17 @@ function handler (req: IncomingMessage, res: ServerResponse) {
     return
   }
 
+  const body = render(h(App, { url: req.url ?? '/' }))
+  const helmet = toStatic()
+  const head = render(h(
+    Fragment, null,
+    h('title', null, helmet.title),
+    helmet.metas.map((m) => h('meta', m)),
+    helmet.links.map((l) => h('link', l))
+  ))
+
   res.setHeader('content-type', 'text/html')
-  res.write(html.replace('<!--ssr-->', render(h(App, { url: req.url ?? '/' }))), () => res.end())
+  res.write(template.replace('<!--ssr-head-->', head).replace('<!--ssr-body-->', body), () => res.end())
 }
 
 createServer(handler).listen(process.env.PORT ?? 8000)

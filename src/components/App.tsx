@@ -25,8 +25,10 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import type { RouterOnChangeArgs } from 'preact-router'
 import { h, Fragment } from 'preact'
-import { useCallback } from 'preact/hooks'
+import { useCallback, useState } from 'preact/hooks'
+import { useTitle, useMeta } from 'hoofd/preact'
 import Router from 'preact-router'
 
 import Header from './Header'
@@ -38,10 +40,26 @@ import AboutUs from './AboutUs'
 import Branding from './Branding'
 import Legal from './Legal'
 
+import logo from '../assets/squirrel.png'
+
 type AppProps = { url: string }
 
 export default function App (props: null | AppProps) {
-  const change = useCallback(() => typeof document !== 'undefined' && document.getElementById('app')?.scrollTo(0, 0), [])
+  const [ url, setUrl ] = useState(props?.url || location.pathname)
+  const change = useCallback((e: RouterOnChangeArgs) => {
+    setUrl(new URL(e.url, 'https://squirrel.chat').pathname)
+    if (typeof document !== 'undefined') {
+      document.getElementById('app')?.scrollTo(0, 0)
+    }
+  }, [])
+
+  useTitle(url === '/' ? 'Squirrel Chat' : '%s • Squirrel Chat', url !== '/')
+
+  useMeta({ name: 'og:image', content: logo })
+  useMeta({ name: 'og:title', content: 'Squirrel Chat' })
+  useMeta({ name: 'og:site_name', content: 'squirrel.chat' })
+  useMeta({ name: 'og:description', content: 'Next-gen, open-source and enterprise-ready chat platform.' })
+  useMeta({ name: 'description', content: 'Next-gen, open-source and enterprise-ready chat platform.' })
 
   return (
     <>

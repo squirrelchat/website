@@ -27,8 +27,14 @@
 
 import type { RoutableProps } from 'preact-router'
 import { h } from 'preact'
+import { useTitle, useMeta } from 'hoofd/preact'
 
 export default function Security (_: RoutableProps) {
+  useTitle('Legal Notice')
+  useMeta({ name: 'og:title', content: 'Legal Notice' })
+  useMeta({ name: 'og:description', content: '' })
+  useMeta({ name: 'description', content: '' })
+
   return (
     <main>
       <h1>Legal Notice</h1>

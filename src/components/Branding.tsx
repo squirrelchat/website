@@ -27,6 +27,7 @@
 
 import type { RoutableProps } from 'preact-router'
 import { h } from 'preact'
+import { useTitle, useMeta } from 'hoofd/preact'
 
 import logo from '../assets/logo.svg?file'
 import frenchSquirrel from '../assets/french.svg?file'
@@ -62,6 +63,11 @@ function Logo (props: LogoProps) {
 }
 
 export default function Branding (_: RoutableProps) {
+  useTitle('Branding')
+  useMeta({ name: 'og:title', content: 'Branding' })
+  useMeta({ name: 'og:description', content: 'Find Squirrel\'s brand assets and learn about usage guidelines.' })
+  useMeta({ name: 'description', content: 'Find Squirrel\'s brand assets and learn about usage guidelines.' })
+
   return (
     <main>
       <h1 aria-label='Squirrel Branding'>

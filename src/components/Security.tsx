@@ -28,14 +28,21 @@
 import type { RoutableProps } from 'preact-router'
 import { h } from 'preact'
 import { useEffect } from 'preact/hooks'
+import { useTitle, useMeta } from 'hoofd/preact'
 
 import style from './security.module.css'
 
 export default function Security (_: RoutableProps) {
+  useTitle('Security Bug Bounty')
+  useMeta({ name: 'og:title', content: 'Security Bug Bounty' })
+  useMeta({ name: 'og:description', content: 'We want to build a secure product, and invite independent security researchers to responsibly report vulnerabilities to us.' })
+  useMeta({ name: 'description', content: 'We want to build a secure product, and invite independent security researchers to responsibly report vulnerabilities to us.' })
+
   useEffect(() => {
     document.body.classList.add(style.haxxor)
     return () => document.body.classList.remove(style.haxxor)
   }, [])
+
   return (
     <main>
       <section>

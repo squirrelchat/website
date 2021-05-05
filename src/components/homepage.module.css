@@ -32,6 +32,7 @@
 .hero-wrapper {
   display: flex;
   background-color: var(--background-secondary);
+  margin-bottom: 24px;
 }
 
 .hero {
@@ -41,7 +42,7 @@
 
 .hero h1 {
   font-size: 2.9rem;
-  margin-bottom: 42px;
+  margin-bottom: 40px;
   letter-spacing: 1px;
 }
 
@@ -49,15 +50,14 @@
   font-size: 18px;
 }
 
+.highlights {
+  margin-bottom: 40px;
+}
+
 .highlights .highlight {
   background-color: var(--background-secondary);
   padding: 16px 24px 24px;
-}
-
-.highlight {
-  margin-bottom: 24px;
   border-radius: 5px;
-  padding: 16px 0 24px;
 }
 
 .highlight .title {
