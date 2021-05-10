@@ -25,8 +25,12 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import { h, render } from 'preact'
+import { h, render, hydrate } from 'preact'
 import App from './components/App'
 import './main.css'
 
-render(h(App, null), document.querySelector('#app')!)
+if (import.meta.env.PROD) {
+  hydrate(h(App, null), document.querySelector('#app')!)
+} else {
+  render(h(App, null), document.querySelector('#app')!)
+}

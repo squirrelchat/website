@@ -25,7 +25,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import type { RouterOnChangeArgs } from 'preact-router'
+import type { RoutableProps, RouterOnChangeArgs } from 'preact-router'
 import { h, Fragment } from 'preact'
 import { useCallback, useState } from 'preact/hooks'
 import { useTitle, useMeta } from 'hoofd/preact'
@@ -42,7 +42,21 @@ import Legal from './Legal'
 
 import logo from '../assets/squirrel.png'
 
-type AppProps = { url: string }
+type AppProps = { url: string, ctx: Record<string, any> }
+
+function NotFound (props: { ctx?: Record<string, any> } & RoutableProps) {
+  if (import.meta.env.SSR) {
+    props.ctx!.notFound = true
+  }
+
+  useTitle('404')
+
+  return (
+    <main>
+      404
+    </main>
+  )
+}
 
 export default function App (props: null | AppProps) {
   const [ url, setUrl ] = useState(props?.url || location.pathname)
@@ -74,7 +88,8 @@ export default function App (props: null | AppProps) {
         <AboutUs path='/about-us'/>
         <Branding path='/branding'/>
         <Legal path='/legal'/>
-        <main default>404</main>
+
+        <NotFound ctx={props?.ctx} default/>
       </Router>
       <Footer/>
     </>

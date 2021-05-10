@@ -41,13 +41,16 @@ const template = readFileSync(join(__dirname, 'index.html'), 'utf8')
 
 function handler (req: IncomingMessage, res: ServerResponse) {
   res.setHeader('x-powered-by', 'an army of squirrels')
+  res.setHeader('content-type', 'text/html')
+
   if (req.method?.toLowerCase() !== 'get') {
     res.writeHead(405, 'method not allowed')
     res.end()
     return
   }
 
-  const body = render(h(App, { url: req.url ?? '/' }))
+  const ctx: Record<string, any> = {}
+  const body = render(h(App, { url: req.url ?? '/', ctx: ctx }))
   const helmet = toStatic()
   const head = render(h(
     Fragment, null,
@@ -56,7 +59,7 @@ function handler (req: IncomingMessage, res: ServerResponse) {
     helmet.links.map((l) => h('link', l))
   ))
 
-  res.setHeader('content-type', 'text/html')
+  if (ctx.notFound) res.writeHead(404, 'Not Found')
   res.write(template.replace('<!--ssr-head-->', head).replace('<!--ssr-body-->', body), () => res.end())
 }
 
