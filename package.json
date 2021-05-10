@@ -32,7 +32,7 @@
     "svgo": "^2.3.0",
     "typescript": "^4.2.4",
     "vite": "^2.2.4",
-    "vite-plugin-magical-svg": "^0.2.3",
+    "vite-plugin-magical-svg": "^0.2.4",
     "xml2js": "^0.4.23"
   }
 }

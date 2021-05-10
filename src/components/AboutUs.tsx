@@ -57,7 +57,7 @@ function Link (link: ITeamMember['links'][number]) {
     case 'twitter':
       return <a href={`https://twitter.com/${link.link}`} aria-label='Twitter'><TwitterIcon/></a>
     case 'telegram':
-      return <a href={`https:/t.me/${link.link}`} aria-label='Twitter'><TelegramIcon/></a>
+      return <a href={`https://t.me/${link.link}`} aria-label='Twitter'><TelegramIcon/></a>
   }
 }
 

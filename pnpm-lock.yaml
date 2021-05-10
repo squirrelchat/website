@@ -18,7 +18,7 @@ specifiers:
   svgo: ^2.3.0
   typescript: ^4.2.4
   vite: ^2.2.4
-  vite-plugin-magical-svg: ^0.2.3
+  vite-plugin-magical-svg: ^0.2.4
   xml2js: ^0.4.23
 
 dependencies:
@@ -41,7 +41,7 @@ devDependencies:
   svgo: 2.3.0
   typescript: 4.2.4
   vite: 2.2.4
-  vite-plugin-magical-svg: 0.2.3_vite@2.2.4
+  vite-plugin-magical-svg: 0.2.4_vite@2.2.4
   xml2js: 0.4.23
 
 packages:
@@ -1166,8 +1166,8 @@ packages:
     resolution: {integrity: sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=}
     dev: true
 
-  /vite-plugin-magical-svg/0.2.3_vite@2.2.4:
-    resolution: {integrity: sha512-MwAJSC35FpDMZmmQtheqc26m/+JJnaBZJDBPINDRt4c2tMTMZA9fl7QnqZzHLy1TOqeDOEdSlI1JCQDJwBg8+g==}
+  /vite-plugin-magical-svg/0.2.4_vite@2.2.4:
+    resolution: {integrity: sha512-ooOBUNLSPmZFbmTEx/CUH89oPAdRtMCwPDQUMxIud8Y8TRAQLGta18Gsz6Gq5Y6LEFkKgCy5MT3ANw4SL3b+yA==}
     peerDependencies:
       vite: '>= 2.0.0'
     dependencies:
