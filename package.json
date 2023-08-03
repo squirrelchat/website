@@ -27,7 +27,7 @@
     "@types/xml2js": "^0.4.8",
     "adm-zip": "^0.5.5",
     "feather-icons": "^4.28.0",
-    "sharp": "^0.28.1",
+    "sharp": "^0.30.5",
     "simple-icons": "^4.22.0",
     "svgo": "^2.3.0",
     "typescript": "^4.2.4",
